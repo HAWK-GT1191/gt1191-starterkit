@@ -2,21 +2,32 @@
   "name": "gt1191-starter",
   "private": true,
   "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "target": {
+    "distDir": "./dist"
   },
-  "browserslist": [
-    "defaults"
-  ],
+  "scripts": {
+    "dev": "parcel 'src/**/*.html' --open",
+    "build": "parcel 'src/**/*.html' build",
+    "xdev": "vite preview",
+    "xbuild": "vite build"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "proseWrap": "preserve",
+    "singleQuote": true
+  },
   "devDependencies": {
-    "sass": "^1.49.9",
-    "vite": "^2.8.0",
-    "vite-plugin-webfont-dl": "^2.0.0"
+    "@parcel/transformer-sass": "2.5.0",
+    "parcel": "latest",
+    "posthtml-doctype": "^1.1.1",
+    "posthtml-include": "^1.7.3",
+    "sass": "^1.51.0",
+    "sharp": "^0.29.1"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.4",
-    "postcss": "^8.4.12"
+    "autoprefixer": "^10.4.6",
+    "postcss": "^8.4.13"
   }
 }
