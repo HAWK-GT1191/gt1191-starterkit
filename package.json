@@ -1,7 +1,7 @@
 {
-  "name": "gt1191-starter",
+  "name": "gt1191-starterkit",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "target": {
     "distDir": "./dist"
