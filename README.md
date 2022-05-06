@@ -6,39 +6,37 @@ Wir nutzen das Build-Tool [Parcel](https://parceljs.org/) mit [Sass](https://par
 
 ## Voraussetzungen
 
-Um mit diesem Starterkit/Repository arbeiten zu können, solltest du auf deinem Rechner Node und Yarn installieren, falls noch nicht geschehen:
+Damit du mit diesem Starterkit/Repository arbeiten kannst, ist die einmalige Installation von Node und yarn nötig:
 
-- Lade dir den [Node.js-Installer](https://nodejs.org/en/download/) für dein System runter und führe die Installation durch.
-- Öffne das Terminal (Mac) bzw. die PowerShell (Windows).
-- Führe dort die folgenden Befehle aus. Mit ihnen kannst du die erfolgreiche Installation von Node.js überprüfen (1), Yarn installieren (2) und auch dessen Installation überprüfen (3).
+1. Lade dir den [Node.js-Installer](https://nodejs.org/en/download/) für dein System runter und führe die Installation durch.
+2. Öffne das Terminal (Mac) bzw. die PowerShell (Windows).
+3. Installiere yarn und kontrolliere die erfolgreiche Installation durch folgende Befehle (Ohne `$`):
 
 ```shell
-$ npm -v
-$ npm install -g yarn
-$ yarn -v
+$ sudo npm install -g yarn
+$ npm -v && yarn -v
 ```
 
-Optional sollest du dir auch Git [installieren](https://git-scm.com/downloads) und [einrichten](https://docs.github.com/en/get-started/getting-started-with-git/setting-your-username-in-git), um noch schneller eine neue Website mit diesem Starterkit aufsetzen zu können.
+> Unter Windows musst du die Ausführungsrichtlinien ändern, damit Skripte wie yarn ausgeführt werden dürfen. Gehe dazu in die Einstellungen unter „Datenschutz und Sicherheit / Entwickler / PowerShell” und bestätige dies mit eineM Klick auf den Button „Anwenden”.
 
-## Installation
+Installiere dir optional Git, wenn du zukünftig noch schneller Websites mit diesem Starterkit aufsetzen möchtest. Nutze bei Windows bitte den [Installer](https://git-scm.com/download/win) und beim Mac den Umweg über [Homebrew](https://git-scm.com/download/mac). Alternativ kannst du im Mac-Terminal auch `git` eingeben und die Installation durchführen.
 
-Wechle im Terminal / in der PowerShell in dein Projektverzeichnis und lade dir eine Kopie herunter, das nennt sich in Git „klonen”. Installiere anschließend mit Yarn die Abhängigkeiten.
+## Einrichtung/Installation
 
-_Wir verwenden hier beispielhaft `Projects` für deinen Projektordner und `neue-website` für die Kopie._
+Wechsle in das Terminal bzw. in die PowerShell, lege dir einen Projektordner an und erstelle dir mittels `git clone` eine Kopie dieses Repositories. Installiere anschließend mit Yarn die Abhängigkeiten.
+
+_Wir verwenden hier beispielhaft `Projects` für deinen Projektordner und `neue-website` für deine neue Website._
 
 ```sh
-$ cd Projects
-$ git clone git@github.com:HAWK-GT1191/gt1191-starterkit.git neue-website
+$ mkdir ~/Projects && cd ~/Projects
+$ git clone https://github.com/HAWK-GT1191/gt1191-starterkit.git neue-website
 $ cd neue-website
 $ yarn install
 ```
 
 ### Manuelle Installation
 
-Solltest du Git nicht verwenden (wollen), lade dir bitte dieses Repository als [ZIP-Datei](https://github.com/HAWK-GT1191/gt1191-starterkit/archive/refs/heads/main.zip) runter und entpacke es.
-
-- Kopiere dir das Verzeichnis `gt1191-starterkit-main` in deinen Projektordner und benenne es z.B. in `neue-webiste` um.
-- Führe dann die o.g. Installation (ohne `git clone`) durch.
+Solltest du Git nicht verwenden (wollen), lade dir bitte dieses Repository als [ZIP-Datei](https://github.com/HAWK-GT1191/gt1191-starterkit/archive/refs/heads/main.zip) runter und entpacke es. Kopiere dir das Verzeichnis `gt1191-starterkit-main` in deinen Projektordner und benenne es z.B. in `neue-website` um. Führe dann die o.g. Installation (ohne `git clone`) durch.
 
 ## Entwicklung
 
@@ -55,7 +53,7 @@ Ist das Starterkit eingerichtet, kannst du mit der Entwicklung deiner Website an
 
 ### Entwicklungsserver starten
 
-Starte nun Parcel mit dem folgenden Befehl. Dieser erstellt einen Webserver und öffnet deine Website in deinem Browser. Solltest du Änderungen vornehmen, werden diese automatisch angezeigt, ohne dass du die Seite im Browser neu laden musst.
+Starte nun Parcel mit dem folgenden Befehl. Dieser erstellt einen Webserver und öffnet deine Website in deinem Browser. Bei Änderungen an deinen Dateien wird die Website automatisch neu geladen.
 
 ```shell
 $ yarn dev --open
