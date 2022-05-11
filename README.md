@@ -6,13 +6,14 @@ Wir nutzen das Build-Tool [Parcel](https://parceljs.org/) mit [Sass](https://par
 
 ## Voraussetzungen
 
-Damit du mit diesem Starterkit/Repository arbeiten kannst, ist die einmalige Installation von Node und yarn nötig:
+Damit du mit diesem Starterkit/Repository arbeiten kannst, ist die Installation von Node und yarn nötig. Aber keine Angst: Diesen Schritt musst du nur ein Mal auf deinm Rechner durchführen.
 
 1. Lade dir den [Node.js-Installer](https://nodejs.org/en/download/) für dein System runter und führe die Installation durch.
 2. Öffne das Terminal (Mac) bzw. die PowerShell (Windows).
 3. Installiere yarn und kontrolliere die erfolgreiche Installation durch folgende Befehle (Ohne `$`):
 
 ```shell
+
 $ sudo npm install -g yarn
 $ npm -v && yarn -v
 ```
@@ -23,7 +24,7 @@ Installiere dir optional Git, wenn du zukünftig noch schneller Websites mit die
 
 ## Einrichtung/Installation
 
-Wechsle in das Terminal bzw. in die PowerShell, lege dir einen Projektordner an und erstelle dir mittels `git clone` eine Kopie dieses Repositories. Installiere anschließend mit Yarn die Abhängigkeiten.
+Sind die Voraussetzungen erfüllt, kannst du mit der Einrichtung des Starterkits fortfahren. Wechsle dazu in das Terminal bzw. in die PowerShell, lege dir einen Projektordner an und erstelle dir mittels `git clone` eine Kopie dieses Repositories. Installiere anschließend mit Yarn die Abhängigkeiten.
 
 _Wir verwenden hier beispielhaft `Projects` für deinen Projektordner und `neue-website` für deine neue Website._
 
@@ -49,15 +50,17 @@ Ist das Starterkit eingerichtet, kannst du mit der Entwicklung deiner Website an
 - `assets`\
   enthält die Schriftart [Roboto](https://fonts.google.com/specimen/Roboto) und ein Beispielbild von Unsplash. Beide sind bereits eingebunden, damit du weißt, wie das funktioniert.
 - `components`\
-  enhält HATML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, den du auf jeder Unterseite wiederverwenden möchtest.
+  enhält HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, den du auf jeder Unterseite wiederverwenden möchtest.
 
 ### Entwicklungsserver starten
 
-Starte nun Parcel mit dem folgenden Befehl. Dieser erstellt einen Webserver und öffnet deine Website in deinem Browser. Bei Änderungen an deinen Dateien wird die Website automatisch neu geladen.
+Starte nun Parcel mit dem folgenden Befehl. Dies erstellt einen Webserver und öffnet deine Website in deinem Browser.
 
 ```shell
-$ yarn dev --open
+$ yarn dev
 ```
+
+Wenn du nun Änderungen (in Visual Studio Code) an deiner Website vornimmst, werden diese automatisch in deinem Browser angezeigt, ohne dass du die Seite neu laden musst.
 
 ### Bilder verwenden
 
