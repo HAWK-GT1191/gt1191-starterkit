@@ -7,8 +7,8 @@
     "distDir": "./dist"
   },
   "scripts": {
-    "dev": "parcel 'src/**/*.html' --open",
-    "build": "parcel 'src/**/*.html' build",
+    "dev": "parcel src/**/*.html --open",
+    "build": "parcel src/**/*.html build",
     "xdev": "vite preview",
     "xbuild": "vite build"
   },
