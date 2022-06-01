@@ -8,9 +8,7 @@
   },
   "scripts": {
     "dev": "parcel src/**/*.html --open",
-    "build": "parcel src/**/*.html build",
-    "xdev": "vite preview",
-    "xbuild": "vite build"
+    "build": "parcel build src/**/*.html"
   },
   "prettier": {
     "trailingComma": "es5",
