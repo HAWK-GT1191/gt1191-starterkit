@@ -6,7 +6,7 @@ Wir nutzen das Build-Tool [Parcel](https://parceljs.org/) mit [Sass](https://par
 
 ## Voraussetzungen
 
-Damit du mit diesem Starterkit/Repository arbeiten kannst, ist die Installation von Node und yarn nötig. Aber keine Angst: Diesen Schritt musst du nur ein Mal auf deinm Rechner durchführen.
+Damit du mit diesem Starterkit/Repository arbeiten kannst, ist die Installation von Node und yarn nötig. Aber keine Angst: Diesen Schritt musst du nur ein Mal auf deinem Rechner durchführen.
 
 1. Lade dir den [Node.js-Installer](https://nodejs.org/en/download/) für dein System runter und führe die Installation durch.
 2. Öffne das Terminal (Mac) bzw. die PowerShell (Windows).
@@ -18,9 +18,9 @@ $ sudo npm install -g yarn
 $ npm -v && yarn -v
 ```
 
-> Unter Windows musst du die Ausführungsrichtlinien ändern, damit Skripte wie yarn ausgeführt werden dürfen. Gehe dazu in die Einstellungen unter „Datenschutz und Sicherheit / Entwickler / PowerShell” und bestätige dies mit eineM Klick auf den Button „Anwenden”.
+> Unter Windows musst du die Ausführungsrichtlinien ändern, damit Skripte wie yarn ausgeführt werden dürfen. Gehe dazu in die Einstellungen unter „Datenschutz und Sicherheit / Entwickler / PowerShell” und bestätige dies mit einem Klick auf den Button „Anwenden”.
 
-Installiere dir optional Git, wenn du zukünftig noch schneller Websites mit diesem Starterkit aufsetzen möchtest. Nutze bei Windows bitte den [Installer](https://git-scm.com/download/win) und beim Mac den Umweg über [Homebrew](https://git-scm.com/download/mac). Alternativ kannst du im Mac-Terminal auch `git` eingeben und die Installation durchführen.
+Installiere dir optional Git, wenn du zukünftig noch schneller Websites mit diesem Starterkit aufsetzen möchtest. Nutze bei Windows bitte den [Installer](https://git-scm.com/download/win) und beim Mac den „Umweg“ über [Homebrew](https://git-scm.com/download/mac). Alternativ kannst du im Mac-Terminal auch `git` eingeben und die vorgeschlagene Installation der Xcode-Essentials durchführen.
 
 ## Einrichtung/Installation
 
