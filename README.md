@@ -44,17 +44,17 @@ Solltest du Git nicht verwenden (wollen), lade dir bitte dieses Repository als [
 Ist das Starterkit eingerichtet, kannst du mit der Entwicklung deiner Website anfangen. Folgende Verzeichnisse sind dabei zu beachten.
 
 - `src`\
-  ist dein Arbeitsverzeichnis und enhält die Startseite `index.html`, sowie eine Unterseiten.
+  ist dein Arbeitsverzeichnis und enhält die Startseite `index.html`, sowie deine zukünftigen Unterseiten.
 - `styles`\
-  enhält die Stylesheet-Datei `app.scss`, die Parcel in CSS umwandelt und in deine Website einbindet. Hier findest du auch `_presets.scss`, die deine Website vorformatiert. Diese Datei kannst du löschen, weiterverwenden oder dir Teile daraus kopieren. Eingebunden wird diese über `@use` im Stylesheet.
+  enhält die Stylesheet-Datei `app.scss`, die Parcel in CSS umwandelt und in deine Website einbindet. Hier findest du auch `_presets.scss`, die deine Website für Demo-Zwecke vorformatiert. Diese Datei kannst du löschen, weiterverwenden oder dir Teile daraus kopieren. Eingebunden wird diese über `@use` im Stylesheet.
 - `assets`\
-  enthält die Schriftart [Roboto](https://fonts.google.com/specimen/Roboto) und ein Beispielbild von Unsplash. Beide sind bereits eingebunden, damit du weißt, wie das funktioniert.
+  enthält die Schriftart [Roboto](https://fonts.google.com/specimen/Roboto) und ein Beispielbild von Unsplash. Beide sind bereits in die Website eingebunden, damit du weißt, wie das funktioniert.
 - `components`\
-  enhält HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, den du auf jeder Unterseite wiederverwenden möchtest.
+  enhält HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, wenn du diese auf jeder Unterseite wiederverwenden möchtest.
 
 ### Entwicklungsserver starten
 
-Starte nun Parcel mit dem folgenden Befehl. Dies erstellt einen Webserver und öffnet deine Website in deinem Browser.
+Starte nun Parcel mit dem folgenden Befehl. Dies erstellt einen Webserver und öffnet die Website im Browser.
 
 ```shell
 $ yarn dev
@@ -70,7 +70,7 @@ _Vorsicht: Das Beispiel ist nicht responsiv oder mobil-optimiert. Es zeigt dir a
 
 ### Website veröffentlichen
 
-Wenn du deine Website veröffentlichen möchtest, muss diese einmal „gebacken” werden. Folgender Befehl startet den Build-Prozess und legt das Ergebnis im Verzeichnis `dist` ab. Dessen Inhalt kannst du dann mit FTP oder SSH auf deinen Webserver hochladen.
+Wenn du deine Website veröffentlichen möchtest, muss diese einmal „gebacken” (build) werden. Folgender Befehl startet den Build-Prozess und legt das Ergebnis einer statischen Website im Verzeichnis `dist` ab. Dessen Inhalt kannst du dann mit FTP oder SSH auf deinen Webserver hochladen.
 
 ```shell
 $ yarn build
