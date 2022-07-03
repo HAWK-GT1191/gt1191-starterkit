@@ -21,6 +21,10 @@
   --font-family: 'Roboto', serif;
   --font-weight: 300;
   --font-weight--bold: 500;
+
+  --clr-bg: hsl(0, 0%, 100%);
+  --clr-text: hsl(0, 0%, 0%);
+  --clr-line: hsl(0, 0%, 80%);
 }
 
 * {
@@ -38,6 +42,9 @@ body {
   font-size: 16px;
   font-weight: var(--font-weight);
   padding: var(--spacing);
+
+  background-color: var(--clt-bg);
+  color: var(--clr-text);
 }
 
 h1,

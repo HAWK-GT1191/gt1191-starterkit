@@ -7,7 +7,7 @@
     "distDir": "./dist"
   },
   "scripts": {
-    "dev": "parcel src/**/*.html --open",
+    "dev": "parcel src/*.html --open",
     "build": "parcel build src/**/*.html"
   },
   "prettier": {
@@ -17,6 +17,7 @@
     "singleQuote": true
   },
   "devDependencies": {
+    "@parcel/transformer-inline-string": "2.5.0",
     "@parcel/transformer-sass": "2.5.0",
     "parcel": "latest",
     "posthtml-doctype": "^1.1.1",

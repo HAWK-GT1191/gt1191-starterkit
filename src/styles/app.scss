@@ -6,6 +6,38 @@
 └──────────────────────────────────┘
 */
 
+.header {
+  border-bottom: 1px solid var(--clr-line);
+  margin-bottom: var(--spacing);
+  padding-bottom: var(--spacing);
+
+  .logo {
+    display: block;
+    width: 10rem;
+
+    span {
+      position: absolute;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+.footer {
+  border-top: 1px solid var(--clr-line);
+  margin-top: var(--spacing);
+  padding-top: var(--spacing);
+}
+
+main {
+  padding: var(--spacing) 0;
+}
+
 .page {
   max-width: 60rem;
   margin: 2rem auto;
