@@ -1,5 +1,10 @@
 {
   "plugins": {
-    "posthtml-include": {}
+    "posthtml-include": {},
+    "posthtml-expressions": {
+      "locals": {
+        "foo": "bar"
+      }
+    }
   }
 }

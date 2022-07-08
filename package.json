@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "parcel src/*.html --open",
-    "build": "parcel build src/**/*.html"
+    "clean": "rm -rf ./.parcel-cache ./dist",
+    "build": "yarn run clean && parcel build src/*.html"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -20,7 +21,7 @@
     "@parcel/transformer-inline-string": "2.5.0",
     "@parcel/transformer-sass": "2.5.0",
     "parcel": "latest",
-    "posthtml-doctype": "^1.1.1",
+    "posthtml-expressions": "^1.9.0",
     "posthtml-include": "^1.7.3",
     "sass": "^1.51.0",
     "sharp": "^0.29.1"
