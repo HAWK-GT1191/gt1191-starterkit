@@ -18,16 +18,16 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@parcel/transformer-inline-string": "2.5.0",
-    "@parcel/transformer-sass": "2.5.0",
-    "parcel": "latest",
-    "posthtml-expressions": "^1.9.0",
-    "posthtml-include": "^1.7.3",
-    "sass": "^1.51.0",
+    "@parcel/transformer-inline-string": "2.7.0",
+    "@parcel/transformer-sass": "2.7.0",
+    "parcel": "2.7.0",
+    "posthtml-expressions": "^1.10.0",
+    "posthtml-include": "^1.7.4",
+    "sass": "^1.56.0",
     "sharp": "^0.29.1"
   },
   "dependencies": {
-    "autoprefixer": "^10.4.6",
-    "postcss": "^8.4.13"
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.18"
   }
 }
