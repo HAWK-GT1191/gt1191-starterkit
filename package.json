@@ -7,9 +7,10 @@
     "distDir": "./dist"
   },
   "scripts": {
-    "dev": "parcel src/*.html --open",
-    "clean": "rm -rf ./.parcel-cache ./dist",
-    "build": "yarn run clean && parcel build src/*.html"
+    "dev": "parcel './src/*.html' --open",
+    "clean": "shx rm -rf ./.parcel-cache ./dist",
+    "build": "yarn run clean && parcel build src/*.html",
+    "deliver": "shx rm -rf ./node_modules"
   },
   "prettier": {
     "trailingComma": "es5",
@@ -24,7 +25,8 @@
     "posthtml-expressions": "^1.10.0",
     "posthtml-include": "^1.7.4",
     "sass": "^1.56.0",
-    "sharp": "^0.29.1"
+    "sharp": "^0.29.1",
+    "shx": "^0.3.4"
   },
   "dependencies": {
     "autoprefixer": "^10.4.13",
