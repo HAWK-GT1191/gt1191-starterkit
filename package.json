@@ -7,7 +7,7 @@
     "distDir": "./dist"
   },
   "scripts": {
-    "dev": "parcel './src/*.html' --open",
+    "dev": "parcel ./src/index.html --open",
     "clean": "shx rm -rf ./.parcel-cache ./dist",
     "build": "yarn run clean && parcel build src/*.html",
     "deliver": "shx rm -rf ./node_modules"
@@ -19,13 +19,13 @@
     "singleQuote": true
   },
   "devDependencies": {
-    "@parcel/transformer-inline-string": "2.7.0",
-    "@parcel/transformer-sass": "2.7.0",
-    "parcel": "2.7.0",
+    "@parcel/transformer-inline-string": "^2.8.0",
+    "@parcel/transformer-sass": "^2.8.0",
+    "parcel": "^2.8.0",
     "posthtml-expressions": "^1.10.0",
     "posthtml-include": "^1.7.4",
     "sass": "^1.56.0",
-    "sharp": "^0.29.1",
+    "sharp": "^0.31.2",
     "shx": "^0.3.4"
   },
   "dependencies": {
