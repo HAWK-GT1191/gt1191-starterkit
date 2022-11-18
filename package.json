@@ -10,7 +10,7 @@
     "dev": "parcel ./src/index.html --open",
     "clean": "shx rm -rf ./.parcel-cache ./dist",
     "build": "yarn run clean && parcel build src/*.html",
-    "deliver": "shx rm -rf ./node_modules"
+    "deliver": "shx rm -rf ./node_modules ./.parcel-cache yarn.lock"
   },
   "prettier": {
     "trailingComma": "es5",
