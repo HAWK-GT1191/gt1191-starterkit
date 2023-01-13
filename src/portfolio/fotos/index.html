@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GT 1191 Starterkit</title>
+  </head>
+  <body>
+    <div class="page">
+      <include src="snippets/header.html"></include>
+
+      <main>
+        <h1>Fotos</h1>
+
+        <figure>
+          <picture>
+            <source
+              srcset="/src/assets/images/howard-follas-vNyakcotFHc-unsplash.jpeg?as=avif&width=800"
+              type="image/avif"
+            />
+            <source
+              srcset="/src/assets/images/howard-follas-vNyakcotFHc-unsplash.jpeg?as=webp&width=800"
+              type="image/webp"
+            />
+            <source srcset="/src/assets/images/howard-follas-vNyakcotFHc-unsplash.jpeg?width=800" type="image/jpeg" />
+            <img src="/src/assets/images/howard-follas-vNyakcotFHc-unsplash.jpeg?width=200" alt="test image" />
+          </picture>
+
+          <figcaption>
+            Photo by
+            <a href="https://unsplash.com/@globe_trotter?utm_source=unsplash" target="_blank" rel="noopener nofollow"
+              >Howard Follas</a
+            >
+            on
+            <a href="https://unsplash.com/" target="_blank" rel="noopener nofollow">Unsplash</a>
+          </figcaption>
+        </figure>
+
+        <p>
+          <a href="/portfolio/">Portfolio</a>
+        </p>
+      </main>
+
+      <include src="snippets/footer.html"></include>
+    </div>
+
+    <script type="module" src="/src/app.js"></script>
+  </body>
+</html>

@@ -1,10 +1,23 @@
-@use 'presets';
+/*
+┌──────────────────────────────────┐
+STANDARDS
+Darfst du gern errgänzen
+└──────────────────────────────────┘
+*/
+
+@use "presets";
 
 /*
 ┌──────────────────────────────────┐
-  YOUR CODE HERE
+DEIN CODE HIER
 └──────────────────────────────────┘
 */
+
+.page {
+  max-width: 60rem;
+  margin-inline: auto;
+  padding-inline: var(--spacing);
+}
 
 .header {
   border-bottom: 1px solid var(--clr-line);
@@ -32,13 +45,4 @@
   border-top: 1px solid var(--clr-line);
   margin-top: var(--spacing);
   padding-top: var(--spacing);
-}
-
-main {
-  padding: var(--spacing) 0;
-}
-
-.page {
-  max-width: 60rem;
-  margin: 2rem auto;
 }

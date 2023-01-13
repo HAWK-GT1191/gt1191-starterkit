@@ -3,20 +3,37 @@
   "private": true,
   "version": "1.0.0",
   "browserslist": "> 2%, last 2 versions, not dead",
-  "target": {
-    "distDir": "./dist"
-  },
   "scripts": {
-    "dev": "parcel ./src/index.html --open",
+    "dev": "parcel 'src/**/*.html' --open",
     "clean": "shx rm -rf ./.parcel-cache ./dist",
     "build": "yarn run clean && parcel build src/*.html",
     "deliver": "shx rm -rf ./node_modules ./.parcel-cache yarn.lock"
   },
+  "target": {
+    "default": {
+      "distDir": "dist",
+      "publicUrl": "/"
+    }
+  },
   "prettier": {
+    "printWidth": 120,
+    "bracketSpacing": true,
+    "singleQuote": true,
     "trailingComma": "es5",
     "tabWidth": 2,
     "proseWrap": "preserve",
-    "singleQuote": true
+    "singleAttributePerLine": false,
+    "overrides": [
+      {
+        "files": [
+          ".",
+          "**/*.html"
+        ],
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
   },
   "devDependencies": {
     "@parcel/transformer-inline-string": "^2.8.0",
