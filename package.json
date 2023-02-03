@@ -1,13 +1,13 @@
 {
   "name": "gt1191-starterkit",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.6.1",
   "browserslist": "> 2%, last 2 versions, not dead",
   "scripts": {
-    "dev": "parcel 'src/**/*.html' --open",
+    "dev": "parcel \"src/**/*.html\" --open",
     "clean": "shx rm -rf ./.parcel-cache ./dist",
     "build": "yarn run clean && parcel build src/*.html",
-    "deliver": "shx rm -rf ./node_modules ./.parcel-cache yarn.lock"
+    "deliver": "shx rm -rf ./node_modules ./dist ./.parcel-cache yarn.lock"
   },
   "target": {
     "default": {

@@ -49,12 +49,12 @@ Ist das Starterkit eingerichtet, kannst du mit der Entwicklung deiner Website an
 
 - `src`\
   ist dein Arbeitsverzeichnis und enhält die Startseite `index.html`, sowie deine zukünftigen Unterseiten.
+- `src/snippets`\
+  enhält HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, wenn du diese auf jeder Unterseite wiederverwenden möchtest.
 - `styles`\
   enhält die Stylesheet-Datei `app.scss`, die Parcel in CSS umwandelt und in deine Website einbindet. Hier findest du auch `_presets.scss`, die deine Website für Demo-Zwecke vorformatiert. Diese Datei kannst du löschen, weiterverwenden oder dir Teile daraus kopieren. Eingebunden wird diese über `@use` im Stylesheet.
 - `assets`\
-  enthält die Schriftart [Roboto](https://fonts.google.com/specimen/Roboto) und ein Beispielbild von Unsplash. Beide sind bereits in die Website eingebunden, damit du weißt, wie das funktioniert.
-- `components`\
-  enhält HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, wenn du diese auf jeder Unterseite wiederverwenden möchtest.
+  enthält die Schriftart [Roboto](https://fonts.google.com/specimen/Roboto) und ein Beispielbilder von Unsplash. Diese sind bereits in die Website eingebunden, damit du weißt, wie das funktioniert.
 
 ### Entwicklungsserver starten
 

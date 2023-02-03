@@ -1,11 +1,11 @@
 {
   "plugins": {
     "posthtml-include": {
-      "root": "./src",
-        "posthtmlExpressionsOptions": {
+      "root": "./src/snippets/",
+      "posthtmlExpressionsOptions": {
         "locals": {
-          "siteTitle": "GT 1191 Starterkit",
-          },
+          "siteTitle": "GT 1191 Starterkit"
+        }
       }
     }
   }
