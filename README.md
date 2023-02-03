@@ -37,7 +37,9 @@ $ cd neue-website
 $ yarn install
 ```
 
-> Um das Starterkit im aktuellen Verzeichnis zu installieren (beispielsweise im Terminal innerhalb von Visual Studio Code), ersetze bei `git clone` „neue-website“ durch einen Punkt (`.`).
+> Um das Starterkit im aktuellen Verzeichnis zu installieren (beispielsweise im Terminal innerhalb von Visual Studio Code), ersetze bei `git clone` „neue-website“ durch einen Punkt (`.`).\
+
+> Achtung: Sollte die Installation fehlschlagen, löscht bitte das Verzeichnis `node_modules` und `yarn.lock` und startet die Installation erneut mit `yarn install`.
 
 ### Manuelle Installation
 
