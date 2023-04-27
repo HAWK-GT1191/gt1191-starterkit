@@ -3,6 +3,8 @@
     "posthtml-include": {
       "root": "./src/snippets/",
       "posthtmlExpressionsOptions": {
+        "strictMode": true,
+        "missingLocal": "",
         "locals": {
           "siteTitle": "GT 1191 Starterkit"
         }
