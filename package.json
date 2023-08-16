@@ -36,13 +36,13 @@
     ]
   },
   "devDependencies": {
-    "@parcel/transformer-inline-string": "2.8.3",
-    "@parcel/transformer-sass": "2.8.3",
-    "autoprefixer": "^10.4.14",
-    "parcel": "latest",
-    "postcss": "^8.4.23",
+    "@parcel/transformer-inline-string": "^2.9.3",
+    "@parcel/transformer-sass": "^2.9.3",
+    "autoprefixer": "^10.4.15",
+    "parcel": "^2.9.3",
+    "postcss": "^8.4.28",
     "posthtml-include": "^1.7.4",
-    "sass": "^1.62.1",
+    "sass": "^1.65.1",
     "sharp": "^0.31.1",
     "shx": "^0.3.4"
   }
