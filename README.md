@@ -4,6 +4,8 @@ Mit diesem Starterkit des Seminars [GT 1191](https://hawk-gt1191.de/) der Hochsc
 
 Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) mit [Sass](https://parceljs.org/languages/sass/) sowie [PostHTML](https://parceljs.org/languages/html/#posthtml), ist für responsive Single- und Multi-Page-Websites vorkonfiguriert und nimmt dir viele manuelle Entwicklungsschritte ab.
 
+![Build CI](https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/main.yml/badge.svg)
+
 ## Voraussetzungen
 
 Um mit dem Starterkit arbeiten zu können, musst du vorab Git und die Paketmanager Node.js und Yarn auf deinem Computer installieren:
