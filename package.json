@@ -43,7 +43,7 @@
     "postcss": "^8.4.32",
     "posthtml-include": "^1.7.4",
     "sass": "^1.69.5",
-    "sharp": "^0.33.0",
+    "sharp": "^0.31.1",
     "shx": "^0.3.4"
   },
   "dependencies": {}
