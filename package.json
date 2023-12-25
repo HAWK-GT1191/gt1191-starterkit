@@ -1,7 +1,7 @@
 {
   "name": "gt1191-starterkit",
   "private": true,
-  "version": "1.8.5",
+  "version": "1.9.0",
   "browserslist": "> 2%, last 2 versions, not dead",
   "scripts": {
     "dev": "parcel \"src/**/*.html\" --open",
