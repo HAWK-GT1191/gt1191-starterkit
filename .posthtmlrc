@@ -3,11 +3,14 @@
     "posthtml-include": {
       "root": "./src/snippets/",
       "posthtmlExpressionsOptions": {
-        "strictMode": true,
-        "missingLocal": "",
-        "locals": {
-          "siteTitle": "GT 1191 Starterkit"
-        }
+        "strictMode": false
+      }
+    },
+    "posthtml-expressions": {
+      "strictMode": false,
+      "missingLocal": "",
+      "locals": {
+        "title": "Audi Demo Page"
       }
     }
   }

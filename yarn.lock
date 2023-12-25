@@ -1759,7 +1759,7 @@ postcss@^8.4.32:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-posthtml-expressions@^1.7.1:
+posthtml-expressions@^1.11.3, posthtml-expressions@^1.7.1:
   version "1.11.3"
   resolved "https://registry.yarnpkg.com/posthtml-expressions/-/posthtml-expressions-1.11.3.tgz#a4d8215cdfa0a74f7be23d8dce1a22bdda1ff8f8"
   integrity sha512-S75Sp3UUoOQJV2vtubJOuv6u/R9hqJE62rgihOTxKCTog68A5OIRNBoIWLKMVD8VJ8l0vQaIEKzWZ4Vm3ht5hw==
