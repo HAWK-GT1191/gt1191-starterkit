@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  border-bottom: 1px solid var(--clr-line);
+  margin-bottom: var(--spacing);
+  padding-bottom: var(--spacing);
+
+  .logo {
+    display: block;
+    width: 10rem;
+
+    span {
+      position: absolute;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      width: 1px;
+      margin: -1px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+    }
+  }
+}

@@ -10,6 +10,7 @@ Gern darfst du diese auch komplett löschen und alles selbst festlegen.
 */
 
 @use 'base';
+@use 'components';
 
 /*
 ┌──────────────────────────────────┐
@@ -21,28 +22,6 @@ Gern darfst du diese auch komplett löschen und alles selbst festlegen.
   max-width: 60rem;
   margin-inline: auto;
   padding-inline: var(--spacing);
-}
-
-.header {
-  border-bottom: 1px solid var(--clr-line);
-  margin-bottom: var(--spacing);
-  padding-bottom: var(--spacing);
-
-  .logo {
-    display: block;
-    width: 10rem;
-
-    span {
-      position: absolute;
-      clip: rect(0 0 0 0);
-      height: 1px;
-      width: 1px;
-      margin: -1px;
-      padding: 0;
-      border: 0;
-      overflow: hidden;
-    }
-  }
 }
 
 .footer {
