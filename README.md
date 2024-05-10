@@ -2,7 +2,7 @@
 
 Mit diesem Starterkit des Seminars [GT 1191](https://hawk-gt1191.de/) der Hochschule für angewandte Wissenschaft und Kunst (HAWK) kannst du im Handumdrehen neue Websites entwickeln.
 
-Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) mit [Sass](https://parceljs.org/languages/sass/) sowie [PostHTML](https://parceljs.org/languages/html/#posthtml), ist für responsive Single- und Multi-Page-Websites vorkonfiguriert und nimmt dir viele manuelle Entwicklungsschritte ab.
+Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) und ist vorkonfiguriert mit [CSS Nesting und Custom media queries](https://parceljs.org/languages/css/#draft-syntax) sowie [PostHTML](https://parceljs.org/languages/html/#posthtml) für die Erstellung von reponsiven Single- und Multi-Page-Websites.
 
 ![Build CI](https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/main.yml/badge.svg)
 
@@ -47,13 +47,13 @@ $ yarn dev
 Folgende Verzeichnisse sind dabei zu beachten.
 
 - `src`\
-  Das ist dein Arbeitsverzeichnis und enthält die das Template der Startseite `index.html`, sowie den Unterseiten.
+  Das ist dein Arbeitsverzeichnis und enthält die das Template der Startseite `index.html`, sowie deine Unterseiten. Portfolio ist als Beispiel eingebunden.
 - `src/snippets`\
-  enthält HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, wenn du diese auf jeder Unterseite wiederverwenden möchtest.
-- `styles`\
-  enthält die Stylesheet-Datei `app.scss`, die das Starterkit in CSS umwandelt und in deine Website einbindet. Hier findest du auch `_presets.scss`, die deine Website für Demo-Zwecke vorformatiert. Diese Datei kannst du löschen, weiterverwenden oder dir Teile daraus kopieren. Eingebunden wird diese über `@use` im Stylesheet.
-- `assets`\
-  enthält die Schriftart [Roboto](https://fonts.google.com/specimen/Roboto) und Beispielbilder von [Unsplash](https://unsplash.com/de). Diese sind bereits in die Website eingebunden, damit du sehen kannst, wie das funktioniert.
+  enthält die HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, wenn du diese auf jeder Unterseite wiederverwenden möchtest.
+- `src/styles`\
+  enthält die Stylesheet-Datei `main.css`, in der alle anderen CSS-Dateien zur besseren Organistation importiert werden. Daraus entsteht am Ende eine große CSS-Datei. Alle Vorgabgen darfst (und solltest) du gern anpassen oder ganz löschen.
+- `src/images`\
+  enthält ein paar Beispielbilder (u.&#8239;a. von [Unsplash](https://unsplash.com/de)). Diese sind bereits in die Website eingebunden, damit du sehen kannst, wie das funktioniert.
 
 ### Verwendung von Bildern
 

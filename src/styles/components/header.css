@@ -1,15 +1,11 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-
   border-bottom: 1px solid var(--clr-line);
-  margin-bottom: var(--spacing);
-  padding-bottom: var(--spacing);
+  padding: var(--spacing);
 
   .logo {
     display: block;
     width: 10rem;
+    margin-bottom: var(--spacing);
 
     span {
       position: absolute;
@@ -21,5 +17,17 @@
       border: 0;
       overflow: hidden;
     }
+  }
+
+  nav,
+  ul {
+    display: flex;
+    margin-block: 0;
+    padding-inline: 0;
+    gap: var(--spacing);
+  }
+
+  li {
+    list-style: none;
   }
 }

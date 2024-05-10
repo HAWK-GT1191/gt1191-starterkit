@@ -1,31 +1,21 @@
 @charset "UTF-8";
 
-/*
-┌──────────────────────────────────┐
-  VOREINSTELLUNGEN
-└──────────────────────────────────┘
-Schau dir bitte genau an, was dort definiert wurde
-und passe dies entsprechend deiner Wünsche an.
-Gern darfst du diese auch komplett löschen und alles selbst festlegen.
-*/
-
-@use 'base';
-@use 'components';
+@layer base, components;
 
 /*
 ┌──────────────────────────────────┐
-  FOLGEND DEINE EIGENEN STYLES
+  BASE
 └──────────────────────────────────┘
 */
 
-.page {
-  max-width: 60rem;
-  margin-inline: auto;
-  padding-inline: var(--spacing);
-}
+@import 'base/variables.css' layer(base);
+@import 'base/layout.css' layer(base);
 
-.footer {
-  border-top: 1px solid var(--clr-line);
-  margin-top: var(--spacing);
-  padding-top: var(--spacing);
-}
+/*
+┌──────────────────────────────────┐
+  COMPONENTS
+└──────────────────────────────────┘
+*/
+
+@import 'components/header.css' layer(components);
+@import 'components/footer.css' layer(components);

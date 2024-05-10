@@ -3,9 +3,17 @@
 import '@fontsource-variable/rubik';
 
 // Import der eigenen Styles
-import './styles/main.scss';
+import './styles/main.css';
 
-// Alles weitere dienst nur zur Demonstration und kann gelöscht werden
+/*
+┌──────────────────────────────────┐
+  NUR ZUR DEMO
+└──────────────────────────────────┘
+
+Alle folgenden Zeilen dienen nur zur Demonstration und können gelöscht werden.
+
+Es soll dir zeigen, wie du ein SVG-Logo direkt einbinden kannst, ohne dies im HTML zu tun. Des weiteren wird die Versionsnummer des Projekts im Footer und in der Konsole der Developer Tools deines Browsers ausgegeben. Auch das darfst du gern entfernen, wenn du es nicht benötigst.
+*/
 
 // Import und Einbindung des HAWK-Logos im Header
 import hawkLogo from 'bundle-text:./images/hawk-gt1191.svg';
