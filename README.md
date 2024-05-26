@@ -10,7 +10,7 @@ Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) und ist vork
 
 Um mit dem Starterkit arbeiten zu können, musst du vorab Git und die Paketmanager Node.js und Yarn auf deinem Computer installieren:
 
-[Zur Installationsanleitung](https://github.com/macx/starterguide.dev/blob/main/de/prerequisits.md)
+[Zur Installationsanleitung](https://starterguide.dev/prerequisits)
 
 ## Neue Website anlegen
 
