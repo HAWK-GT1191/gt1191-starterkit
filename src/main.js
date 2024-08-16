@@ -1,5 +1,7 @@
 // Import der Fonts über Fontsource (https://fontsource.org/)
-// Rubik 300-900:
+// Schriftart Rubik, Schriftschnitte 300-900.
+// Tutorial zur Anwendung findest du hier:
+// https://hawk-gt1191.de/tutorials/webfonts-schriften-einbinden
 import '@fontsource-variable/rubik';
 
 // Import der eigenen Styles
@@ -7,15 +9,11 @@ import './styles/main.css';
 
 /*
 ┌──────────────────────────────────┐
-  NUR ZUR DEMO
+  NUR ZUR DEMO – BITTE ENTFERNEN!
 └──────────────────────────────────┘
-
-Alle folgenden Zeilen dienen nur zur Demonstration und können gelöscht werden.
-
-Es soll dir zeigen, wie du ein SVG-Logo direkt einbinden kannst, ohne dies im HTML zu tun. Des weiteren wird die Versionsnummer des Projekts im Footer und in der Konsole der Developer Tools deines Browsers ausgegeben. Auch das darfst du gern entfernen, wenn du es nicht benötigst.
 */
 
-// Import und Einbindung des HAWK-Logos im Header
+// Einbindung des HAWK-Logos im Header über JavaScript statt über HTML.
 import hawkLogo from 'bundle-text:./images/hawk-gt1191.svg';
 let logo = document.createElement('div');
 logo.innerHTML = hawkLogo;
@@ -30,3 +28,9 @@ console.log(
   `%c┌─────────────────────────────────────────┐\n  GT 1191 STARTERKIT (v${packageJson.version})              \n  https://github.com/HAWK-GT1191/gt1191-starterkit\n└─────────────────────────────────────────┘`,
   'background: black; color: limegreen'
 );
+
+/*
+┌──────────────────────────────────┐
+  PLATZ FÜR DEINEN CODE…
+└──────────────────────────────────┘
+*/

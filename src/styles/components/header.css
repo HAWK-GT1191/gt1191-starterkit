@@ -30,4 +30,8 @@
   li {
     list-style: none;
   }
+
+  .current {
+    font-weight: var(--font-weight-bold);
+  }
 }
