@@ -4,10 +4,11 @@
   "version": "2.0.1",
   "browserslist": "> 2%, last 2 versions, not dead",
   "scripts": {
-    "dev": "parcel \"src/**/*.html\" --open",
+    "dev": "parcel \"src/**/*.html\" --no-cache --open",
     "clean": "shx rm -rf ./.parcel-cache ./dist",
-    "build": "yarn run clean && parcel build src/*.html",
-    "deliver": "shx rm -rf ./node_modules ./dist ./.parcel-cache yarn.lock"
+    "reset": "yarn run clean && shx rm -rf ./node_modules yarn.lock",
+    "build": "yarn run clean && parcel build src/**/*.html",
+    "submission": "yarn run build --no-optimize"
   },
   "target": {
     "default": {
@@ -41,10 +42,10 @@
   },
   "devDependencies": {
     "@parcel/transformer-inline-string": "^2.12.0",
-    "autoprefixer": "^10.4.19",
+    "autoprefixer": "^10.4.20",
     "parcel": "^2.12.0",
-    "postcss": "^8.4.38",
-    "posthtml-expressions": "^1.11.3",
+    "postcss": "^8.4.41",
+    "posthtml-expressions": "^1.11.4",
     "posthtml-include": "^2.0.1",
     "sharp": "^0.31.3",
     "shx": "^0.3.4"
