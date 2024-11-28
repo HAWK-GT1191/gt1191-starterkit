@@ -5,7 +5,7 @@
 import '@fontsource-variable/rubik';
 
 // Import der eigenen Styles
-import './styles/main.css';
+import './styles/app.css';
 
 /*
 ┌──────────────────────────────────┐

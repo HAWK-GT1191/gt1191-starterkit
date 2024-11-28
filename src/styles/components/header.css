@@ -1,11 +1,11 @@
 .header {
   border-bottom: 1px solid var(--clr-line);
-  padding: var(--spacing);
+  padding: var(--sp);
 
   .logo {
     display: block;
     width: 10rem;
-    margin-bottom: var(--spacing);
+    margin-bottom: var(--sp);
 
     span {
       position: absolute;
@@ -24,7 +24,7 @@
     display: flex;
     margin-block: 0;
     padding-inline: 0;
-    gap: var(--spacing);
+    gap: var(--sp);
   }
 
   li {
@@ -32,6 +32,6 @@
   }
 
   .current {
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--fw-bold);
   }
 }

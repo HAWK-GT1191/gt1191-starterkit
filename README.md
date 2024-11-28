@@ -51,7 +51,7 @@ Folgende Verzeichnisse sind dabei zu beachten.
 - `src/snippets`\
   enthält die HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, wenn du diese auf jeder Unterseite wiederverwenden möchtest.
 - `src/styles`\
-  enthält die Stylesheet-Datei `main.css`, in der alle anderen CSS-Dateien zur besseren Organistation importiert werden. Daraus entsteht am Ende eine große CSS-Datei. Alle Vorgabgen darfst (und solltest) du gern anpassen oder ganz löschen.
+  enthält die Stylesheet-Datei `app.css`, in der alle anderen CSS-Dateien zur besseren Organistation importiert werden. Daraus entsteht am Ende eine große CSS-Datei. Alle Vorgabgen darfst (und solltest) du gern anpassen oder ganz löschen.
 - `src/images`\
   enthält ein paar Beispielbilder (u.&#8239;a. von [Unsplash](https://unsplash.com/de)). Diese sind bereits in die Website eingebunden, damit du sehen kannst, wie das funktioniert.
 
