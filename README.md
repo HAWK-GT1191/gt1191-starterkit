@@ -24,7 +24,13 @@ $ git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit.git .
 $ git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit.git neue-website
 ```
 
-Installiere nun die Abhängigkeiten des Starterkits:
+Falls noch nicht geschehen, solltest du das in der Installationsanleitung genannte Corepack für dieses Verzeichnis aktivieren, damit unsere Website weiß, welchen Paketmanager sie verwenden soll.
+
+```shell
+$ corepack enable
+```
+
+Installiere nun die Abhängigkeiten (Dependencies) des Starterkits:
 
 ```shell
 $ yarn install
