@@ -1,57 +1,53 @@
 {
   "name": "gt1191-starterkit",
-  "private": true,
-  "version": "2.1.1",
-  "browserslist": "> 2%, last 2 versions, not dead",
+  "description": "GT 1191Starterkit",
+  "version": "3.0.0-beta",
+  "type": "module",
+  "license": "MIT",
+  "author": "David Maciejewski",
+  "keywords": [
+    "starterkit",
+    "website",
+    "parcel",
+    "gt1191",
+    "hawk"
+  ],
+  "main": "dist/index.js",
+  "bin": {
+    "gt1191-starterkit": "index.js"
+  },
+  "files": [
+    "index.js",
+    "templates/*",
+    "dist"
+  ],
   "scripts": {
-    "dev": "parcel \"src/**/*.html\" --no-cache --open",
-    "clean": "shx rm -rf ./.parcel-cache ./dist",
-    "reset": "yarn run clean && shx rm -rf ./node_modules yarn.lock",
-    "build": "yarn run clean && parcel build src/**/*.html",
-    "submission": "yarn run build --no-optimize"
+    "dev": "unbuild --stub",
+    "build": "unbuild ",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "target": {
-    "default": {
-      "distDir": "dist",
-      "publicUrl": "/"
-    }
+  "engines": {
+    "node": "^20.0.0 || >=22.0.0"
   },
-  "prettier": {
-    "printWidth": 120,
-    "bracketSpacing": true,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "proseWrap": "preserve",
-    "singleAttributePerLine": false,
-    "overrides": [
-      {
-        "files": [
-          ".",
-          "**/*.html"
-        ],
-        "options": {
-          "singleQuote": false
-        }
-      }
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HAWK-GT1191/gt1191-starterkit.git"
   },
-  "packageManager": "yarn@4.2.2",
-  "dependencies": {
-    "@fontsource-variable/rubik": "^5.1.0"
+  "bugs": {
+    "url": "https://github.com/HAWK-GT1191/gt1191-starterkit/issues"
   },
+  "homepage": "https://github.com/gt1191/gt1191-starterkit",
   "devDependencies": {
-    "@parcel/transformer-inline-string": "^2.13.2",
-    "parcel": "^2.13.2",
-    "posthtml-expressions": "^1.11.4",
-    "posthtml-include": "^2.0.1",
-    "sharp": "^0.33.5",
-    "shx": "^0.3.4"
+    "@types/fs-extra": "^11.0.4",
+    "@types/prompts": "^2.4.9",
+    "picocolors": "^1.1.1",
+    "prompts": "^2.4.2",
+    "typescript": "^5.7.2",
+    "unbuild": "^3.2.0"
   },
-  "@parcel/transformer-css": {
-    "drafts": {
-      "nesting": true,
-      "customMedia": true
-    }
+  "dependencies": {
+    "fs-extra": "^11.2.0"
   }
 }

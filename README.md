@@ -82,3 +82,7 @@ $ yarn deliver
 ```
 
 Mit `yarn install` kannst du anschließend wieder weiterarbeiten.
+
+```shell
+$ npm run build
+```
