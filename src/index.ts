@@ -96,10 +96,26 @@ Womit möchtest du starten?`;
           },
         },
         {
+          type: 'select',
+          name: 'currentdir',
+          message: 'Soll ein neues Verzeichnis angelegt werden?',
+          choices: [
+            { title: 'Ja', value: 'yes' },
+            { title: 'Nein', value: 'no' },
+          ],
+          onState: (state) => {
+            if (state.value === 'no') {
+              targetDir = '.';
+            }
+          },
+        },
+        {
           type: () => (!fs.existsSync(targetDir) || isEmpty(targetDir) ? null : 'select'),
           name: 'overwrite',
           message: () =>
-            (targetDir === '.' ? 'Das aktuelle Verzeichnis' : `Das Verzeichnis „${targetDir}“`) +
+            (targetDir === '.'
+              ? 'Das aktuelle Verzeichnis'
+              : `Das Verzeichnis „${targetDir}“`) +
             ' ist nicht leer. Wie möchetst du fortfahren?',
           initial: 0,
           choices: [
@@ -144,7 +160,11 @@ Womit möchtest du starten?`;
 
   console.log(`\nDein Projekt wird angelegt in ${root}…`);
 
-  const templateDir = path.resolve(fileURLToPath(import.meta.url), '../../templates', template);
+  const templateDir = path.resolve(
+    fileURLToPath(import.meta.url),
+    '../../templates',
+    template
+  );
 
   const write = (file: string, content?: string) => {
     const targetPath = path.join(root, renameFiles[file] ?? file);
@@ -158,23 +178,30 @@ Womit möchtest du starten?`;
 
   // Copy all files from the template directory to the target directory
   const templateFiles = fs.readdirSync(templateDir);
-  for (const file of templateFiles.filter((f) => f !== 'package.json')) {
+  const ignoreFiles = ['package.json', 'pnpm-lock.yaml'];
+  for (const file of templateFiles.filter((f) => !ignoreFiles.includes(f))) {
     write(file);
   }
 
   // package.json is copied separately to be able to modify it
-  const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, 'package.json'), 'utf-8'));
+  const pkg = JSON.parse(
+    fs.readFileSync(path.join(templateDir, 'package.json'), 'utf-8')
+  );
 
   pkg.name = projectName;
 
   write('package.json', JSON.stringify(pkg, null, 2));
 
   const cdProjectName = path.relative(cwd, root);
-  console.log(`\n${green('✔')} Das Projekt ${green(projectName)} wurde erfolgreich angelegt.\n`);
+  console.log(
+    `\n${green('✔')} Das Projekt ${green(projectName)} wurde erfolgreich angelegt.\n`
+  );
 
   console.log(yellow(`\nFühre im Terminal nun folgende Befehle aus:\n`));
   if (root !== cwd) {
-    console.log(`  cd ${cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName}`);
+    console.log(
+      `  cd ${cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName}`
+    );
   }
   switch (pkgManager) {
     case 'yarn':
@@ -193,7 +220,9 @@ function isEmpty(path: string): boolean {
   return files.length === 0 || (files.length === 1 && files[0] === '.git');
 }
 
-function pkgFromUserAgent(userAgent: string | undefined): { name: string; version: string } | undefined {
+function pkgFromUserAgent(
+  userAgent: string | undefined
+): { name: string; version: string } | undefined {
   if (!userAgent) return undefined;
   const pkgSpec = userAgent.split(' ')[0];
   const pkgSpecArr = pkgSpec.split('/');

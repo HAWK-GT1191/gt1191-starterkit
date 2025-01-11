@@ -1,4 +1,15 @@
 {
+  "$schema": "https://unpkg.com/release-it@18/schema/release-it.json",
+  "plugins": {
+    "@release-it/bumper": {
+      "in": "package.json",
+      "out": [
+        "templates/multipager/package.json",
+        "templates/singlepager/package.json",
+        "templates/playground/package.json"
+      ]
+    }
+  },
   "git": {
     "commitMessage": "chore: release v${version}",
     "tagAnnotation": "Version v${version}"

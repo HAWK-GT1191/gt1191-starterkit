@@ -1,52 +1,36 @@
 <h1>GT 1191 Starterkit</h1>
 
-Mit diesem Starterkit des Seminars [GT 1191](https://hawk-gt1191.de/) der Hochschule für angewandte Wissenschaft und Kunst (HAWK) kannst du im Handumdrehen neue Websites entwickeln.
+Mit dem Starterkit des Seminars [GT 1191](https://hawk-gt1191.de/) der Hochschule für angewandte Wissenschaft und Kunst (HAWK) kannst du im Handumdrehen neue Websites entwickeln.
 
 Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) und ist vorkonfiguriert mit [CSS Nesting und Custom media queries](https://parceljs.org/languages/css/#draft-syntax) sowie [PostHTML](https://parceljs.org/languages/html/#posthtml) für die Erstellung von reponsiven Single- und Multi-Page-Websites.
 
-![Build CI](https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/main.yml/badge.svg)
+![Build CI](https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/release.yml/badge.svg)
 
 ## Voraussetzungen
 
-Um mit dem Starterkit arbeiten zu können, musst du vorab Git und die Paketmanager Node.js und Yarn auf deinem Computer installieren:
+Um mit dem Starterkit arbeiten zu können, musst du vorab den Paketmanager Node.js auf deinem Computer installieren:
 
-[Zur Installationsanleitung](https://starterguide.dev/prerequisits)
+[Zur Installationsanleitung](https://starterguide.dev)
 
-## Neue Website anlegen
+## Ein neues Projekt starten
 
-Lade dir die Dateien des Starterkits herunter und lege sie in dem Verzeichnis deiner neuen Website ab.
-
-```shell
-# Speichert die Dateien im aktuellen Verzeichnis
-$ git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit.git .
-
-# Speichert die Dateien in einem neuen Verzeichnis
-$ git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit.git neue-website
-```
-
-Falls noch nicht geschehen, solltest du das in der Installationsanleitung genannte Corepack für dieses Verzeichnis aktivieren, damit unsere Website weiß, welchen Paketmanager sie verwenden soll.
+Um mit dem Starterkit loszulegen, musst du ein neues Projekt anlegen. Führe den folgenden Befehl im Terminal aus:
 
 ```shell
-$ corepack enable
+npm create gt1191-starterkit
 ```
 
-Installiere nun die Abhängigkeiten (Dependencies) des Starterkits:
-
-```shell
-$ yarn install
-```
-
-> Sollte die Installation fehlschlagen, lösche bitte das Verzeichnis `node_modules` und `yarn.lock` und starte die Installation erneut.
+Du wirst hier Schritt für Schritt durch den Prozess geführt.
 
 ## Entwicklung
 
 Ist das Starterkit eingerichtet, kannst du mit der Entwicklung deiner Website anfangen. Der folgende Befehl startet einen Webserver, erstellt einen „Build“ deiner Website im Verzeichnis `dist`, öffnet diesen im Browser und zeigt Datenänderungen ohne Reload an:
 
 ```shell
-$ yarn dev
+npm run dev
 ```
 
-> Lässt sich das Starterkit im Fehlerfall – zum Beispiel nach dem Kopieren – nicht starten, gebe einmalig `yarn clean` in das Terminal ein.
+> Lässt sich das Starterkit im Fehlerfall – zum Beispiel nach dem Kopieren – nicht starten, gebe einmalig `npm run clean` in das Terminal ein.
 
 ### Datei- und Verzeichnisstruktur
 
@@ -57,7 +41,7 @@ Folgende Verzeichnisse sind dabei zu beachten.
 - `src/snippets`\
   enthält die HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, wenn du diese auf jeder Unterseite wiederverwenden möchtest.
 - `src/styles`\
-  enthält die Stylesheet-Datei `app.css`, in der alle anderen CSS-Dateien zur besseren Organistation importiert werden. Daraus entsteht am Ende eine große CSS-Datei. Alle Vorgabgen darfst (und solltest) du gern anpassen oder ganz löschen.
+  enthält die Stylesheet-Datei `main.css`, in der alle anderen CSS-Dateien zur besseren Organistation importiert werden. Daraus entsteht am Ende eine große CSS-Datei. Alle Vorgabgen darfst (und solltest) du gern anpassen oder ganz löschen.
 - `src/images`\
   enthält ein paar Beispielbilder (u.&#8239;a. von [Unsplash](https://unsplash.com/de)). Diese sind bereits in die Website eingebunden, damit du sehen kannst, wie das funktioniert.
 

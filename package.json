@@ -1,6 +1,6 @@
 {
   "name": "gt1191-starterkit",
-  "description": "GT 1191Starterkit",
+  "description": "Starterkit based on Parcel for the Students of the Seminar GT 1191.",
   "version": "3.0.0-beta",
   "type": "module",
   "license": "MIT",
@@ -14,7 +14,8 @@
   ],
   "main": "dist/index.js",
   "bin": {
-    "gt1191-starterkit": "index.js"
+    "gt1191-starterkit": "index.js",
+    "sync-versions": "sync-versions.js"
   },
   "files": [
     "index.js",
@@ -23,10 +24,12 @@
   ],
   "scripts": {
     "dev": "unbuild --stub",
-    "build": "unbuild ",
+    "build": "unbuild",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sync-versions": "node dist/sync-versions.mjs",
+    "prepublishOnly": "npm run sync-versions && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it"
   },
   "engines": {
     "node": "^20.0.0 || >=22.0.0"
@@ -40,14 +43,17 @@
   },
   "homepage": "https://github.com/gt1191/gt1191-starterkit",
   "devDependencies": {
+    "@release-it/bumper": "^6.0.1",
     "@types/fs-extra": "^11.0.4",
     "@types/prompts": "^2.4.9",
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2",
+    "release-it": "^18.0.0",
     "typescript": "^5.7.2",
     "unbuild": "^3.2.0"
   },
   "dependencies": {
     "fs-extra": "^11.2.0"
-  }
+  },
+  "packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321"
 }
