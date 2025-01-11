@@ -1,17 +1,8 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  color-scheme: only light;
-}
-
+/* Die Definition der Custom-Properties var(…)
+  findest du in der Datei variables.css */
 body {
   font-family: var(--ff);
-  font-size: 16px;
+  font-size: var(--fs);
   font-weight: var(--fw);
   line-height: var(--lh);
 
@@ -33,23 +24,4 @@ h3,
 b,
 strong {
   font-weight: var(--fw-bold);
-}
-
-p {
-  margin-block: 0 1.2em;
-}
-
-img,
-picture,
-svg,
-video {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-textarea,
-button,
-select {
-  font: inherit;
 }

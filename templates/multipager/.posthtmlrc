@@ -10,7 +10,8 @@
       "strictMode": false,
       "missingLocal": "",
       "locals": {
-        "title": "HAWK GT 1191 Starterkit"
+        "title": "HAWK GT 1191 Starterkit",
+        "description": "Mit dem HAWK GT 1191 Starterkit kannst du im Handumdrehen neue Websites entwickeln."
       }
     }
   }
