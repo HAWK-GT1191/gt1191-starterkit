@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import prompts from 'prompts';
 import colors from 'picocolors';
 import { version } from '../package.json';
+import { execSync } from 'child_process';
 
 type ColorFunc = (str: string | number) => string;
 
@@ -35,19 +36,19 @@ const templates: Template[] = [
     title: 'Multipager',
     value: 'multipager',
     color: blueBright,
-    description: 'Projekt mit mehreren Unterseiten',
+    description: 'Projekt mit Unterseiten',
   },
   {
     title: 'Onepager',
     value: 'onepager',
     color: greenBright,
-    description: 'Projekt mit einer einzigen Seite',
+    description: 'Projekt mit einer HTML-Seite',
   },
   {
     title: 'Playground',
     value: 'playground',
     color: yellow,
-    description: 'Leeres Projekt zum Experimentieren',
+    description: 'Perfekt, um HTML und CSS zu lernen',
   },
 ];
 
@@ -150,7 +151,19 @@ Womit möchtest du starten?`;
   const root = path.join(cwd, targetDir);
 
   const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
-  const pkgManager = pkgInfo ? pkgInfo.name : 'npm';
+  let pkgManager = pkgInfo ? pkgInfo.name : 'npm';
+
+  // Check for yarn version
+  let yarnVersion = 1;
+
+  try {
+    const yarnVersionOutput = execSync('yarn --version').toString().trim();
+    yarnVersion = parseInt(yarnVersionOutput.split('.')[0], 10);
+  } catch (error) {}
+
+  if (pkgManager === 'yarn' && yarnVersion >= 3) {
+    pkgManager = 'yarn@berry';
+  }
 
   if (overwrite === 'yes') {
     emptyDir(root);
@@ -190,6 +203,15 @@ Womit möchtest du starten?`;
 
   pkg.name = projectName;
 
+  // Rewrite scripts in package.json to set the used package manager
+  const scripts = pkg.scripts;
+  for (const scriptName in scripts) {
+    let script = scripts[scriptName];
+    // Replace 'pnpm run' with the detected package manager
+    script = script.replace(/pnpm run/g, `${pkgManager} run`);
+    scripts[scriptName] = script;
+  }
+
   write('package.json', JSON.stringify(pkg, null, 2));
 
   const cdProjectName = path.relative(cwd, root);
@@ -205,6 +227,10 @@ Womit möchtest du starten?`;
   }
   switch (pkgManager) {
     case 'yarn':
+      console.log('  yarn');
+      console.log('  yarn dev');
+      break;
+    case 'yarn@berry':
       console.log('  yarn');
       console.log('  yarn dev');
       break;

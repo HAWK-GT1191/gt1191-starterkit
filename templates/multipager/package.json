@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "parcel \"src/**/*.html\" --no-cache --open",
     "clean": "shx rm -rf ./.parcel-cache ./dist",
-    "reset": "yarn run clean && shx rm -rf ./node_modules yarn.lock",
-    "build": "yarn run clean && parcel build src/**/*.html",
-    "submission": "yarn run build --no-optimize"
+    "reset": "pnpm run clean && shx rm -rf ./node_modules pnpm-lock.yaml",
+    "build": "pnpm run clean && parcel build src/**/*.html",
+    "deliver": "pnpm run build --no-optimize"
   },
   "target": {
     "default": {
@@ -46,7 +46,8 @@
     "posthtml-expressions": "^1.11.4",
     "posthtml-include": "^2.0.1",
     "sharp": "^0.33.5",
-    "shx": "^0.3.4"
+    "shx": "^0.3.4",
+    "svgo": "^3"
   },
   "@parcel/transformer-css": {
     "drafts": {

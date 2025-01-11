@@ -1,8 +1,8 @@
 <h1>GT 1191 Starterkit</h1>
 
-Mit dem Starterkit des Seminars [GT 1191](https://hawk-gt1191.de/) der Hochschule für angewandte Wissenschaft und Kunst (HAWK) kannst du im Handumdrehen neue Websites entwickeln.
+Mit dem Starterkit des Seminars [GT 1191](https://hawk-gt1191.de/) der HAWK Hochschule für angewandte Wissenschaft und Kunst kannst du im Handumdrehen neue Websites entwickeln.
 
-Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) und ist vorkonfiguriert mit [CSS Nesting und Custom media queries](https://parceljs.org/languages/css/#draft-syntax) sowie [PostHTML](https://parceljs.org/languages/html/#posthtml) für die Erstellung von reponsiven Single- und Multi-Page-Websites.
+Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) und ist vorkonfiguriert mit [CSS Nesting und Custom media queries](https://parceljs.org/languages/css/#draft-syntax) sowie [PostHTML](https://parceljs.org/languages/html/#posthtml) für die Erstellung von reponsiven websites (mobile first).
 
 ![Build CI](https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/release.yml/badge.svg)
 

@@ -7,9 +7,9 @@
   "scripts": {
     "dev": "parcel \"src/**/*.html\" --no-cache --open",
     "clean": "shx rm -rf ./.parcel-cache ./dist",
-    "reset": "yarn run clean && shx rm -rf ./node_modules yarn.lock",
-    "build": "yarn run clean && parcel build src/**/*.html",
-    "submission": "yarn run build --no-optimize"
+    "reset": "pnpm run clean && shx rm -rf ./node_modules pnpm.lock",
+    "build": "pnpm run clean && parcel build src/**/*.html",
+    "deliver": "pnpm run build --no-optimize"
   },
   "target": {
     "default": {

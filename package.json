@@ -12,7 +12,7 @@
     "gt1191",
     "hawk"
   ],
-  "main": "dist/index.js",
+  "main": "index.js",
   "bin": {
     "gt1191-starterkit": "index.js",
     "sync-versions": "sync-versions.js"
@@ -43,17 +43,18 @@
   },
   "homepage": "https://github.com/gt1191/gt1191-starterkit",
   "devDependencies": {
-    "@release-it/bumper": "^6.0.1",
+    "@release-it/bumper": "^7.0.0",
     "@types/fs-extra": "^11.0.4",
     "@types/prompts": "^2.4.9",
     "picocolors": "^1.1.1",
     "prompts": "^2.4.2",
-    "release-it": "^18.0.0",
-    "typescript": "^5.7.2",
+    "release-it": "^18.1.1",
+    "typescript": "^5.7.3",
     "unbuild": "^3.2.0"
   },
   "dependencies": {
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.2.0",
+    "gt1191-starterkit": "link:../../../Library/pnpm/global/5/node_modules/gt1191-starterkit"
   },
-  "packageManager": "pnpm@9.15.2+sha512.93e57b0126f0df74ce6bff29680394c0ba54ec47246b9cf321f0121d8d9bb03f750a705f24edc3c1180853afd7c2c3b94196d0a3d53d3e069d9e2793ef11f321"
+  "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
 }
