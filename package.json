@@ -14,7 +14,7 @@
   ],
   "main": "index.js",
   "bin": {
-    "website-starterkit": "index.js",
+    "create-website-starterkit": "index.js",
     "sync-versions": "sync-versions.js"
   },
   "files": [
