@@ -1,0 +1,18 @@
+{
+  "plugins": {
+    "posthtml-include": {
+      "root": "./src/snippets/",
+      "posthtmlExpressionsOptions": {
+        "strictMode": false
+      }
+    },
+    "posthtml-expressions": {
+      "strictMode": false,
+      "missingLocal": "",
+      "locals": {
+        "title": "HAWK GT 1191 Starterkit",
+        "description": "Mit dem HAWK GT 1191 Starterkit kannst du im Handumdrehen neue Websites entwickeln."
+      }
+    }
+  }
+}

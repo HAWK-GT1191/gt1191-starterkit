@@ -1,52 +1,34 @@
-<h1>GT 1191 Starterkit</h1>
+<h1>Website Starterkit</h1>
 
-Mit diesem Starterkit des Seminars [GT 1191](https://hawk-gt1191.de/) der Hochschule für angewandte Wissenschaft und Kunst (HAWK) kannst du im Handumdrehen neue Websites entwickeln.
+Mit dem Starterkit des Seminars [GT 1191](https://hawk-gt1191.de/) der HAWK Hochschule für angewandte Wissenschaft und Kunst kannst du im Handumdrehen neue Websites entwickeln.
 
-Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) und ist vorkonfiguriert mit [CSS Nesting und Custom media queries](https://parceljs.org/languages/css/#draft-syntax) sowie [PostHTML](https://parceljs.org/languages/html/#posthtml) für die Erstellung von reponsiven Single- und Multi-Page-Websites.
-
-![Build CI](https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/main.yml/badge.svg)
+Das Starterkit nutzt das Build-Tool [Parcel](https://parceljs.org/) und ist vorkonfiguriert mit [CSS Nesting und Custom media queries](https://parceljs.org/languages/css/#draft-syntax) sowie [PostHTML](https://parceljs.org/languages/html/#posthtml) für die Erstellung von reponsiven websites (mobile first).
 
 ## Voraussetzungen
 
-Um mit dem Starterkit arbeiten zu können, musst du vorab Git und die Paketmanager Node.js und Yarn auf deinem Computer installieren:
+Um mit dem Starterkit arbeiten zu können, musst du vorab den Paketmanager Node.js auf deinem Computer installieren:
 
-[Zur Installationsanleitung](https://starterguide.dev/prerequisits)
+[Zur Installationsanleitung](https://starterguide.dev)
 
-## Neue Website anlegen
+## Ein neues Projekt starten
 
-Lade dir die Dateien des Starterkits herunter und lege sie in dem Verzeichnis deiner neuen Website ab.
-
-```shell
-# Speichert die Dateien im aktuellen Verzeichnis
-$ git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit.git .
-
-# Speichert die Dateien in einem neuen Verzeichnis
-$ git clone --depth 1 https://github.com/HAWK-GT1191/gt1191-starterkit.git neue-website
-```
-
-Falls noch nicht geschehen, solltest du das in der Installationsanleitung genannte Corepack für dieses Verzeichnis aktivieren, damit unsere Website weiß, welchen Paketmanager sie verwenden soll.
+Das Starterkit hilft dir, ein Projekt für eine neue Website zu erstellen. Führe den folgenden Befehl im Terminal aus, wenn du eine neue Website anlegen möchtest:
 
 ```shell
-$ corepack enable
+npm create website-starterkit
 ```
 
-Installiere nun die Abhängigkeiten (Dependencies) des Starterkits:
-
-```shell
-$ yarn install
-```
-
-> Sollte die Installation fehlschlagen, lösche bitte das Verzeichnis `node_modules` und `yarn.lock` und starte die Installation erneut.
+Du wirst hier Schritt für Schritt durch den Prozess geführt.
 
 ## Entwicklung
 
 Ist das Starterkit eingerichtet, kannst du mit der Entwicklung deiner Website anfangen. Der folgende Befehl startet einen Webserver, erstellt einen „Build“ deiner Website im Verzeichnis `dist`, öffnet diesen im Browser und zeigt Datenänderungen ohne Reload an:
 
 ```shell
-$ yarn dev
+npm run dev
 ```
 
-> Lässt sich das Starterkit im Fehlerfall – zum Beispiel nach dem Kopieren – nicht starten, gebe einmalig `yarn clean` in das Terminal ein.
+> Lässt sich das Starterkit im Fehlerfall – zum Beispiel nach dem Kopieren – nicht starten, gebe einmalig `npm run clean` in das Terminal ein.
 
 ### Datei- und Verzeichnisstruktur
 
@@ -57,28 +39,28 @@ Folgende Verzeichnisse sind dabei zu beachten.
 - `src/snippets`\
   enthält die HTML-Snippets (Codeschnipsel), die du mittels `<include>` in deine Website einbinden kannst. Praktisch für den Header oder Footer deiner Website, wenn du diese auf jeder Unterseite wiederverwenden möchtest.
 - `src/styles`\
-  enthält die Stylesheet-Datei `app.css`, in der alle anderen CSS-Dateien zur besseren Organistation importiert werden. Daraus entsteht am Ende eine große CSS-Datei. Alle Vorgabgen darfst (und solltest) du gern anpassen oder ganz löschen.
+  enthält die Stylesheet-Datei `main.css`, in der alle anderen CSS-Dateien zur besseren Organistation importiert werden. Daraus entsteht am Ende eine große CSS-Datei. Alle Vorgabgen darfst (und solltest) du gern anpassen oder ganz löschen.
 - `src/images`\
   enthält ein paar Beispielbilder (u.&#8239;a. von [Unsplash](https://unsplash.com/de)). Diese sind bereits in die Website eingebunden, damit du sehen kannst, wie das funktioniert.
 
-### Verwendung von Bildern
+Weitere Informationen zur Struktur, den Varianten und den Möglichkeiten findest du in der [Dokumentation](https://starterguide.dev).
 
-Das Starterkit unterstützt von Haus aus die Einbindung und Optimierung von Bildern. Nutze dazu bitte dafür die Beispiele und lese dir die [Image-Dokumentation](https://parceljs.org/recipes/image/) durch.
+### Website veröffentlichen
 
-_Vorsicht: Das Beispiel ist nicht responsiv oder mobil-optimiert. Es zeigt dir aber, wie du verschiedene Bildformate nutzen kannst._
-
-### Website veröffentlichen/versenden
-
-Wenn du deine Website auf deinem eigenen Webserver veröffentlichen möchtest, muss diese einmal „gebacken” (build) werden. Folgender Befehl startet den Build-Prozess und legt das Ergebnis einer statischen Website im Verzeichnis `dist` ab. Dessen Inhalt kannst du dann mit FTP oder SSH auf deinen Webserver hochladen.
+Wenn du deine Website auf deinem eigenen Webserver veröffentlichen möchtest, muss diese einmal „gebacken” (build) werden. Folgender Befehl startet den Build-Prozess und legt das Ergebnis einer statischen Website im Verzeichnis `dist` ab.
 
 ```shell
-$ yarn build
+npm run build
 ```
 
-Möchtest du deine Website zur Bewertung oder Benotung abgeben, verwende folgenden Befehl, um die Dateigröße vor dem zippen zu minimieren.
+Lade die Inhalte aus dem Verzeichnis `dist` nun mit einem FTP-Programm oder SSH auf deinem Webserver hoch.
+
+#### Website zur Bewertung abgeben
+
+Wenn du deine Website zur Bewertung oder Benotung abgeben möchtest, verwende folgenden Befehl:
 
 ```shell
-$ yarn deliver
+npm run deliver
 ```
 
-Mit `yarn install` kannst du anschließend wieder weiterarbeiten.
+Benenne jetzt das Verzeichnis `dist` nach dem Schema `vorname-nachname-matrikelnummer` mit deinen Daten um und erstelle daraus ein ZIP-Archiv. Dieses Archiv kannst du nun hochladen oder per E-Mail versenden.

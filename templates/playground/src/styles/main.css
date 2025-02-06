@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body {
+  font-family: system-ui;
+  margin: 2rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  user-select: none;
+
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  svg {
+    block-size: 1.5rem;
+    inline-size: 10rem;
+  }
+}

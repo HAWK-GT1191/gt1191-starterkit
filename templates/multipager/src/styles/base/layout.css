@@ -1,0 +1,27 @@
+/* Die Definition der Custom-Properties var(…)
+  findest du in der Datei variables.css */
+body {
+  font-family: var(--ff);
+  font-size: var(--fs);
+  font-weight: var(--fw);
+  line-height: var(--lh);
+
+  margin: 0;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+main {
+  padding: var(--sp);
+}
+
+h1,
+h2,
+h3,
+b,
+strong {
+  font-weight: var(--fw-bold);
+}

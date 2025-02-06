@@ -1,0 +1,37 @@
+.header {
+  border-bottom: 1px solid var(--clr-line);
+  padding: var(--sp);
+
+  nav,
+  ul {
+    display: flex;
+    margin-block: 0;
+    padding-inline: 0;
+    gap: var(--sp-s);
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .current {
+    font-weight: var(--fw-bold);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-block-end: var(--sp-s);
+    user-select: none;
+
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    svg {
+      block-size: 1.5rem;
+      inline-size: 10rem;
+    }
+  }
+}

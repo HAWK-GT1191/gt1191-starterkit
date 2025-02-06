@@ -1,0 +1,17 @@
+:root {
+  /* Spacing (sp) */
+  --sp: 1.25rem;
+  --sp-s: 0.75rem;
+
+  /* Font Family (ff), Font Weight (fw) */
+  --ff: 'Rubik Variable', stytem-ui, serif;
+  --fw: 300;
+  --fw-bold: 500;
+  --fs: 1rem;
+  --lh: 1.4;
+
+  /* Colors (clr) */
+  --clr-bg: hsl(0, 0%, 100%);
+  --clr-text: hsl(0, 0%, 0%);
+  --clr-line: hsl(0, 0%, 80%);
+}

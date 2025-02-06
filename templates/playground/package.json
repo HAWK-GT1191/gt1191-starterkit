@@ -1,0 +1,57 @@
+{
+  "name": "gt1191-starterkit-playground",
+  "private": true,
+  "version": "3.0.2",
+  "browserslist": "> 2%, last 2 versions, not dead",
+  "homepage": "https://github.com/HAWK-GT1191/gt1191-starterkit",
+  "scripts": {
+    "dev": "parcel \"src/**/*.html\" --no-cache --open",
+    "clean": "shx rm -rf ./.parcel-cache ./dist",
+    "reset": "pnpm run clean && shx rm -rf ./node_modules pnpm.lock",
+    "build": "pnpm run clean && parcel build src/**/*.html",
+    "deliver": "pnpm run build --no-optimize"
+  },
+  "target": {
+    "default": {
+      "distDir": "dist",
+      "publicUrl": "/"
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "bracketSpacing": true,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "proseWrap": "preserve",
+    "singleAttributePerLine": false,
+    "overrides": [
+      {
+        "files": [
+          ".",
+          "**/*.html"
+        ],
+        "options": {
+          "singleQuote": false
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "@fontsource-variable/rubik": "^5.1.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-inline-string": "^2.13.2",
+    "parcel": "^2.13.2",
+    "posthtml-expressions": "^1.11.4",
+    "posthtml-include": "^2.0.1",
+    "sharp": "^0.33.5",
+    "shx": "^0.3.4"
+  },
+  "@parcel/transformer-css": {
+    "drafts": {
+      "nesting": true,
+      "customMedia": true
+    }
+  }
+}

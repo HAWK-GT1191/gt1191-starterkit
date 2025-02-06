@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <script type="module" src="/src/main.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <include src="header.html" locals='{"page": "fotos"}'></include>
+
+      <main>
+        <h1>Fotos</h1>
+
+        <p>In dem Starterkit sind beispielhaft folgende Fotos eingebunden:</p>
+
+        <ul class="references">
+          <li>
+            Auckland<br />
+            <img src="/src/assets/auckland-unsplash.jpg?width=300" alt="" />
+          </li>
+          <li>
+            Milford Sound<br />
+            <img src="/src/assets/milford-sound-unsplash.jpg?width=300" alt="" />
+          </li>
+        </ul>
+
+        <aside>
+          <p>
+            Wie du mit Fotos arbeiten kannst erfährst du auf der Website
+            <a href="https://starterguide.dev/starterkit/images/" target="_blank" rel="noopener nofollow"
+              >starterguide.dev</a
+            >.
+          </p>
+
+          <small>
+            Fotos von
+            <a href="https://unsplash.com/de/fotos/graue-betonstrasse-zwischen-green-mountains-tagsuber-JPRypr3CCmg"
+              >Geoff Byro</a
+            >
+            und
+
+            <a href="https://unsplash.com/de/fotos/person-die-tagsuber-auf-roter-betonstrasse-radelt-m4-wkz4GV04"
+              >Dan Freeman</a
+            >
+
+            auf <a href="https://unsplash.com">Unsplash</a>.
+          </small>
+        </aside>
+      </main>
+
+      <include src="footer.html"></include>
+    </div>
+  </body>
+</html>
