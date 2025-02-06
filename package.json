@@ -1,7 +1,7 @@
 {
   "name": "website-starterkit",
   "description": "Starterkit based on Parcel for the Students of the Seminar GT 1191.",
-  "version": "3.0.0-beta",
+  "version": "3.0.0",
   "type": "module",
   "license": "MIT",
   "author": "David Maciejewski",
