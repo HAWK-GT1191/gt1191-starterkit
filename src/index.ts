@@ -29,40 +29,42 @@ const projectNamePattern = /^[a-z0-9-]+$/;
 
 const cwd = process.cwd();
 
-const { dim, inverse, blueBright, green, greenBright, red, yellow } = colors;
+const { dim, inverse, blueBright, green, greenBright, red, yellow, italic } = colors;
 
 const templates: Template[] = [
+  {
+    title: 'Playground',
+    value: 'playground',
+    color: yellow,
+    description: 'Spielwiese zum Lernen von HTML und CSS',
+  },
   {
     title: 'Multipager',
     value: 'multipager',
     color: blueBright,
-    description: 'Projekt mit Unterseiten',
+    description: 'HTML-Website mit Unterseiten',
   },
   {
     title: 'Onepager',
     value: 'onepager',
     color: greenBright,
-    description: 'Projekt mit einer HTML-Seite',
-  },
-  {
-    title: 'Playground',
-    value: 'playground',
-    color: yellow,
-    description: 'Perfekt, um HTML und CSS zu lernen',
+    description: 'Single-Page HTML-Website',
   },
 ];
 
 const welcomeMessage = `\
 
 ┌─────────────────────────────────────────┐
-  ${inverse('GT1191 Starterkit')}
-  ${dim('Version: ' + version)}
+${inverse('GT1191 Starterkit')}
+${dim('Version: ' + version)}
 └─────────────────────────────────────────┘
 
 Womit möchtest du starten?`;
 
 (async () => {
   // const argTargetDir = process.argv[2];
+
+  const currentDir = path.join(cwd);
 
   let result: prompts.Answers<'template' | 'projectName' | 'overwrite'>;
 
@@ -99,13 +101,13 @@ Womit möchtest du starten?`;
         {
           type: 'select',
           name: 'currentdir',
-          message: 'Soll ein neues Verzeichnis angelegt werden?',
+          message: `Wo soll das Projekt gespeichert werden?\n${italic(dim('Du bist hier: ' + currentDir))}`,
           choices: [
-            { title: 'Ja', value: 'yes' },
-            { title: 'Nein', value: 'no' },
+            { title: 'Neuen Ordner anlegen', value: 'newfolder' },
+            { title: 'Im aktuellen Verzeichnis', value: 'current' },
           ],
           onState: (state) => {
-            if (state.value === 'no') {
+            if (state.value === 'current') {
               targetDir = '.';
             }
           },
@@ -114,15 +116,13 @@ Womit möchtest du starten?`;
           type: () => (!fs.existsSync(targetDir) || isEmpty(targetDir) ? null : 'select'),
           name: 'overwrite',
           message: () =>
-            (targetDir === '.'
-              ? 'Das aktuelle Verzeichnis'
-              : `Das Verzeichnis „${targetDir}“`) +
+            (targetDir === '.' ? 'Das aktuelle Verzeichnis' : `Das Verzeichnis „${targetDir}“`) +
             ' ist nicht leer. Wie möchetst du fortfahren?',
           initial: 0,
           choices: [
             { title: 'Abbrechen', value: 'no' },
             { title: 'Dateien löschen und fortfahren', value: 'yes' },
-            { title: 'Datein ignorieren und fortfahren', value: 'ignore' },
+            { title: 'Dateien ignorieren und fortfahren', value: 'ignore' },
           ],
         },
         {
@@ -147,7 +147,6 @@ Womit möchtest du starten?`;
   }
 
   const { template, overwrite, projectName } = result;
-
   const root = path.join(cwd, targetDir);
 
   const pkgInfo = pkgFromUserAgent(process.env.npm_config_user_agent);
@@ -173,11 +172,7 @@ Womit möchtest du starten?`;
 
   console.log(`\nDein Projekt wird angelegt in ${root}…`);
 
-  const templateDir = path.resolve(
-    fileURLToPath(import.meta.url),
-    '../../templates',
-    template
-  );
+  const templateDir = path.resolve(fileURLToPath(import.meta.url), '../../templates', template);
 
   const write = (file: string, content?: string) => {
     const targetPath = path.join(root, renameFiles[file] ?? file);
@@ -191,15 +186,19 @@ Womit möchtest du starten?`;
 
   // Copy all files from the template directory to the target directory
   const templateFiles = fs.readdirSync(templateDir);
-  const ignoreFiles = ['package.json', 'pnpm-lock.yaml'];
-  for (const file of templateFiles.filter((f) => !ignoreFiles.includes(f))) {
-    write(file);
+  const ignoreFilesAndFolders = ['package.json', 'pnpm-lock.yaml', 'node_modules', 'dist', '.parcel-cache'];
+
+  for (const file of templateFiles) {
+    const filePath = path.join(templateDir, file);
+    const stat = fs.statSync(filePath);
+
+    if (!ignoreFilesAndFolders.includes(file) && !(stat.isDirectory() && ignoreFilesAndFolders.includes(file))) {
+      write(file);
+    }
   }
 
   // package.json is copied separately to be able to modify it
-  const pkg = JSON.parse(
-    fs.readFileSync(path.join(templateDir, 'package.json'), 'utf-8')
-  );
+  const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, 'package.json'), 'utf-8'));
 
   pkg.name = projectName;
 
@@ -215,15 +214,11 @@ Womit möchtest du starten?`;
   write('package.json', JSON.stringify(pkg, null, 2));
 
   const cdProjectName = path.relative(cwd, root);
-  console.log(
-    `\n${green('✔')} Das Projekt ${green(projectName)} wurde erfolgreich angelegt.\n`
-  );
+  console.log(`\n${green('✔')} Das Projekt ${green(projectName)} wurde erfolgreich angelegt.\n`);
 
   console.log(yellow(`\nFühre im Terminal nun folgende Befehle aus:\n`));
   if (root !== cwd) {
-    console.log(
-      `  cd ${cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName}`
-    );
+    console.log(`  cd ${cdProjectName.includes(' ') ? `"${cdProjectName}"` : cdProjectName}`);
   }
   switch (pkgManager) {
     case 'yarn':
@@ -246,9 +241,7 @@ function isEmpty(path: string): boolean {
   return files.length === 0 || (files.length === 1 && files[0] === '.git');
 }
 
-function pkgFromUserAgent(
-  userAgent: string | undefined
-): { name: string; version: string } | undefined {
+function pkgFromUserAgent(userAgent: string | undefined): { name: string; version: string } | undefined {
   if (!userAgent) return undefined;
   const pkgSpec = userAgent.split(' ')[0];
   const pkgSpecArr = pkgSpec.split('/');
