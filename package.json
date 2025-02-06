@@ -1,5 +1,5 @@
 {
-  "name": "gt1191-starterkit",
+  "name": "website-starterkit",
   "description": "Starterkit based on Parcel for the Students of the Seminar GT 1191.",
   "version": "3.0.0-beta",
   "type": "module",
@@ -14,7 +14,7 @@
   ],
   "main": "index.js",
   "bin": {
-    "gt1191-starterkit": "index.js",
+    "website-starterkit": "index.js",
     "sync-versions": "sync-versions.js"
   },
   "files": [
