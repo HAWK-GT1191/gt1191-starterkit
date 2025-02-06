@@ -1,7 +1,7 @@
 {
   "name": "gt1191-starterkit-multipager",
   "private": true,
-  "version": "3.0.0",
+  "version": "3.0.1",
   "browserslist": "> 2%, last 2 versions, not dead",
   "homepage": "https://github.com/HAWK-GT1191/gt1191-starterkit",
   "scripts": {

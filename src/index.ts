@@ -21,7 +21,7 @@ const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
 };
 
-const defaultTargetDir = 'gt1191-projekt';
+const defaultTargetDir = 'website-starterkit';
 
 let targetDir = defaultTargetDir;
 
@@ -55,7 +55,7 @@ const templates: Template[] = [
 const welcomeMessage = `\
 
 ┌─────────────────────────────────────────┐
-${inverse('GT1191 Starterkit')}
+${inverse('Website Starterkit')}
 ${dim('Version: ' + version)}
 └─────────────────────────────────────────┘
 
