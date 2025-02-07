@@ -4,9 +4,9 @@
     "@release-it/bumper": {
       "in": "package.json",
       "out": [
+        "templates/playground/package.json",
         "templates/multipager/package.json",
-        "templates/singlepager/package.json",
-        "templates/playground/package.json"
+        "templates/onepager/package.json"
       ]
     }
   },
