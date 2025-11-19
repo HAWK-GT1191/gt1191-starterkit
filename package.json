@@ -26,13 +26,18 @@
     "dev": "unbuild --stub",
     "build": "unbuild",
     "typecheck": "tsc --noEmit",
+    "test:templates": "node ./scripts/test-templates.js",
+    "test:e2e": "node ./scripts/run-playwright.js",
+    "test:all": "npm install && npm run test:templates && npm run test:e2e",
+    "update:templates:preview": "node ./scripts/update-templates.js --preview",
+    "update:templates": "node ./scripts/update-templates.js",
     "sync-versions": "node dist/sync-versions.mjs",
     "prepublishOnly": "npm run sync-versions && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "release-it"
   },
   "engines": {
-    "node": "^20.0.0 || >=22.0.0"
+    "node": ">=22.0.0 <25.0.0"
   },
   "repository": {
     "type": "git",
@@ -53,7 +58,10 @@
     "prompts": "^2.4.2",
     "release-it": "^18.1.1",
     "typescript": "^5.7.3",
-    "unbuild": "^3.2.0"
+    "unbuild": "^3.2.0",
+    "npm-check-updates": "^16.0.0",
+    "semver": "^7.5.4",
+    "playwright": "^1.40.0"
   },
   "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
 }

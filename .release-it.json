@@ -11,13 +11,18 @@
     }
   },
   "git": {
-    "commitMessage": "chore: release v${version}",
-    "tagAnnotation": "Version v${version}"
+    "commitMessage": "chore(release): v${version}",
+    "tagName": "v${version}",
+    "tagAnnotation": "Version v${version}",
+    "requireCleanWorkingDir": true
   },
   "github": {
     "release": true
   },
   "npm": {
-    "publish": false
+    "publish": true
+  },
+  "hooks": {
+    "before:init": ["pnpm run build"]
   }
 }
