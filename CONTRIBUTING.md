@@ -58,6 +58,18 @@ Key points:
 - The Release job now uses `pnpm` and runs `test:templates` and `test:e2e` before publishing.
 - The Release job is assigned to the `release` environment; this requires a manual approval step in GitHub (configure an environment in repo Settings → Environments and set required reviewers).
 
+Important GitHub settings you must configure
+
+- Add `NPM_TOKEN` as a repository secret: Repository → Settings → Secrets and variables → Actions → New repository secret. Name it `NPM_TOKEN` and paste the npm automation token.
+- Create a GitHub Environment named `release` (Repository → Settings → Environments → New environment `release`). In the environment settings add at least one required reviewer or team so that the release job requires manual approval before the publish step.
+- In Repository → Settings → Actions → General ensure Workflow permissions are set to "Read and write permissions" (needed so the workflow can create tags/releases and push updates). Also enable "Allow GitHub Actions to create and approve deployments" if you plan to use environment deployments.
+- Confirm that Actions has access to repository secrets for workflows (default), so `NPM_TOKEN` will be available to the release workflow.
+
+Why these settings?
+- `NPM_TOKEN` is required by the release job to publish the package to npm from CI.
+- The `release` environment with required reviewers enforces a human gate: tests run automatically, but publishing only proceeds after an authorized reviewer approves the environment deployment.
+- Read/write workflow permissions are necessary for the job to push tags/commits or create releases via the `GITHUB_TOKEN`.
+
 Publishing to npm (developer options)
 
 1) Manual (local):
