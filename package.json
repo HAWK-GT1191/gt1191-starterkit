@@ -34,6 +34,7 @@
     "sync-versions": "node dist/sync-versions.mjs",
     "prepublishOnly": "npm run sync-versions && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "release:dry": "release-it --ci --dry-run --increment patch",
     "release": "release-it"
   },
   "engines": {
