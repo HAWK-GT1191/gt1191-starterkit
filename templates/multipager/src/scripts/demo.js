@@ -14,7 +14,7 @@ export function demoMode() {
     'font-size: 0.75rem; color: limegreen',
     '─────────────────────────────────────────────────┐',
     'font-size: 1.125rem; color: limegreen',
-    'HAWK GT 1191 Starterkit',
+    'Website-Starterkit',
     'font-size: 0.75rem',
     version,
     homepage,

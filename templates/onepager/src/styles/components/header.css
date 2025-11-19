@@ -22,7 +22,7 @@
     display: flex;
     align-items: center;
     gap: 0.5em;
-    margin-block-end: var(--sp-s);
+    margin-block: var(--sp-s);
     user-select: none;
 
     font-size: 1.25rem;

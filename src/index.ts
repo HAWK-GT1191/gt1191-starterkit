@@ -5,7 +5,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import prompts from 'prompts';
 import colors from 'picocolors';
-import { version } from '../package.json';
+import { name as packageName, version as packageVersion } from '../package.json';
+import fetch from 'node-fetch';
 import { execSync } from 'child_process';
 
 type ColorFunc = (str: string | number) => string;
@@ -21,6 +22,7 @@ const renameFiles: Record<string, string | undefined> = {
   _gitignore: '.gitignore',
 };
 
+const starterkitName = 'Website-Starterkit';
 const defaultTargetDir = 'website-starterkit';
 
 let targetDir = defaultTargetDir;
@@ -29,40 +31,71 @@ const projectNamePattern = /^[a-z0-9-]+$/;
 
 const cwd = process.cwd();
 
-const { dim, inverse, blueBright, green, greenBright, red, yellow, italic } = colors;
+const { dim, blueBright, green, greenBright, red, yellow, italic, bold } = colors;
 
 const templates: Template[] = [
   {
     title: 'Playground',
     value: 'playground',
     color: yellow,
-    description: 'Spielwiese zum Lernen von HTML und CSS',
+    description: 'Zum Lernen von HTML und CSS',
   },
   {
     title: 'Multipager',
     value: 'multipager',
     color: blueBright,
-    description: 'HTML-Website mit Unterseiten',
+    description: 'Website mit Unterseiten',
   },
   {
     title: 'Onepager',
     value: 'onepager',
     color: greenBright,
-    description: 'Single-Page HTML-Website',
+    description: 'Website mit nur einer Seite',
   },
 ];
 
 const welcomeMessage = `\
 
-┌─────────────────────────────────────────┐
-${inverse('Website Starterkit')}
-${dim('Version: ' + version)}
-└─────────────────────────────────────────┘
+────────────────────────────┐
+${green(starterkitName)}
+${dim('Version: ' + packageVersion)}
+────────────────────────────┘
 
-Womit möchtest du starten?`;
+`;
+
+async function checkForNewVersion() {
+  const res = await fetch(`https://registry.npmjs.org/${packageName}/latest`);
+  const data = await res.json();
+  const latestVersion = (data as { version: string }).version;
+
+  if (latestVersion !== packageVersion) {
+    const response = await prompts([
+      {
+        type: 'confirm',
+        name: 'update',
+        message:
+          welcomeMessage +
+          `Es gibt eine neuere Version vom ${starterkitName}.\nMöchtest du auf die neueste Version (${latestVersion}) aktualisieren?\n`,
+        initial: true,
+      },
+    ]);
+
+    if (response.update) {
+      console.log(`\nAktualisiere ${packageName} auf Version ${latestVersion}...`);
+      execSync(`npm install -g ${packageName}`, { stdio: 'inherit' });
+      console.log(green(`Das \n${starterkitName} wurde erfolgreich auf Version ${latestVersion} aktualisiert.\n\n`));
+    } else {
+      console.log(
+        yellow(`\nSchade. Installiere die neue Version später, wenn du soweit bist:\n`) +
+          dim(`npm update -g ${packageName}@latest\n`)
+      );
+      process.exit(0);
+    }
+  }
+}
 
 (async () => {
-  // const argTargetDir = process.argv[2];
+  await checkForNewVersion();
 
   const currentDir = path.join(cwd);
 
@@ -74,7 +107,7 @@ Womit möchtest du starten?`;
         {
           type: 'select',
           name: 'template',
-          message: welcomeMessage,
+          message: welcomeMessage + `Was möchtest du nutzen?`,
           choices: templates.map((template) => {
             const templateColor = template.color;
             return {
@@ -142,7 +175,7 @@ Womit möchtest du starten?`;
       }
     );
   } catch (error) {
-    console.error(red(`\nFehler beim Erstellen des Projekts.`) + `\n${error}`);
+    console.error(red(`\nDie Installation wurde abgebrochen.`) + `\n${error}`);
     process.exit(1);
   }
 
@@ -186,7 +219,14 @@ Womit möchtest du starten?`;
 
   // Copy all files from the template directory to the target directory
   const templateFiles = fs.readdirSync(templateDir);
-  const ignoreFilesAndFolders = ['package.json', 'pnpm-lock.yaml', 'node_modules', 'dist', '.parcel-cache'];
+  const ignoreFilesAndFolders = [
+    'package.json',
+    'pnpm-lock.yaml',
+    'node_modules',
+    'dist',
+    '.parcel-cache',
+    '.DS_Store',
+  ];
 
   for (const file of templateFiles) {
     const filePath = path.join(templateDir, file);

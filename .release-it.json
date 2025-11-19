@@ -4,20 +4,25 @@
     "@release-it/bumper": {
       "in": "package.json",
       "out": [
+        "templates/playground/package.json",
         "templates/multipager/package.json",
-        "templates/singlepager/package.json",
-        "templates/playground/package.json"
+        "templates/onepager/package.json"
       ]
     }
   },
   "git": {
-    "commitMessage": "chore: release v${version}",
-    "tagAnnotation": "Version v${version}"
+    "commitMessage": "chore(release): v${version}",
+    "tagName": "v${version}",
+    "tagAnnotation": "Version v${version}",
+    "requireCleanWorkingDir": true
   },
   "github": {
     "release": true
   },
   "npm": {
-    "publish": false
+    "publish": true
+  },
+  "hooks": {
+    "before:init": ["pnpm run build"]
   }
 }

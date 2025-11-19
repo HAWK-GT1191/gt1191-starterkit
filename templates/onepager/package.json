@@ -1,15 +1,15 @@
 {
-  "name": "gt1191-starterkit-singlepager",
+  "name": "website-starterkit-singlepager",
   "private": true,
-  "version": "3.0.2",
+  "version": "3.2.0",
   "browserslist": "> 2%, last 2 versions, not dead",
   "homepage": "https://github.com/HAWK-GT1191/gt1191-starterkit",
   "scripts": {
     "dev": "parcel \"src/**/*.html\" --no-cache --open",
     "clean": "shx rm -rf ./.parcel-cache ./dist",
-    "reset": "pnpm run clean && shx rm -rf ./node_modules pnpm.lock",
-    "build": "pnpm run clean && parcel build src/**/*.html",
-    "deliver": "pnpm run build --no-optimize"
+    "reset": "npm run clean && shx rm -rf ./node_modules pnpm-lock.yaml package-lock.json yarn.lock",
+    "build": "npm run clean && parcel build src/*.html src/*/index.html",
+    "deliver": "npm run build --no-optimize"
   },
   "target": {
     "default": {
@@ -38,15 +38,16 @@
     ]
   },
   "dependencies": {
-    "@fontsource-variable/rubik": "^5.1.0"
+    "@fontsource-variable/rubik": "^5.2.8"
   },
   "devDependencies": {
-    "@parcel/transformer-inline-string": "^2.13.2",
-    "parcel": "^2.13.2",
+    "@parcel/transformer-inline-string": "^2.16.1",
+    "parcel": "^2.16.1",
     "posthtml-expressions": "^1.11.4",
     "posthtml-include": "^2.0.1",
+    "posthtml": "^0.16.0",
     "sharp": "^0.33.5",
-    "shx": "^0.3.4"
+    "shx": "^0.4.0"
   },
   "@parcel/transformer-css": {
     "drafts": {
