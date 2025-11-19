@@ -22,17 +22,18 @@ function serveDirectory(dir) {
       if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
         const stream = fs.createReadStream(filePath);
         const ext = path.extname(filePath).toLowerCase();
-        const mime = {
-          '.html': 'text/html',
-          '.js': 'text/javascript',
-          '.css': 'text/css',
-          '.svg': 'image/svg+xml',
-          '.png': 'image/png',
-          '.jpg': 'image/jpeg',
-          '.jpeg': 'image/jpeg',
-          '.webp': 'image/webp',
-          '.woff2': 'font/woff2'
-        }[ext] || 'application/octet-stream';
+        const mime =
+          {
+            '.html': 'text/html',
+            '.js': 'text/javascript',
+            '.css': 'text/css',
+            '.svg': 'image/svg+xml',
+            '.png': 'image/png',
+            '.jpg': 'image/jpeg',
+            '.jpeg': 'image/jpeg',
+            '.webp': 'image/webp',
+            '.woff2': 'font/woff2',
+          }[ext] || 'application/octet-stream';
         res.setHeader('Content-Type', mime);
         stream.pipe(res);
       } else {
@@ -58,9 +59,10 @@ const ROOT = path.join(new URL(import.meta.url).pathname, '..', '..');
 
 function getTemplates() {
   const templatesDir = path.join(ROOT, 'templates');
-  return fs.readdirSync(templatesDir, { withFileTypes: true })
-    .filter(d => d.isDirectory())
-    .map(d => path.join(templatesDir, d.name));
+  return fs
+    .readdirSync(templatesDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => path.join(templatesDir, d.name));
 }
 
 async function testTemplateConsole(dir) {
@@ -96,7 +98,7 @@ async function testTemplateConsole(dir) {
   const browser = await chromium.launch();
   const page = await browser.newPage();
   const messages = [];
-  page.on('console', msg => {
+  page.on('console', (msg) => {
     messages.push(msg.text());
   });
 

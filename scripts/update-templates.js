@@ -12,10 +12,11 @@ const preview = args.includes('--preview');
 
 function getTemplates() {
   const templatesDir = path.join(__dirname, '..', 'templates');
-  return fs.readdirSync(templatesDir, { withFileTypes: true })
-    .filter(d => d.isDirectory())
-    .map(d => path.join(templatesDir, d.name, 'package.json'))
-    .filter(p => fs.existsSync(p));
+  return fs
+    .readdirSync(templatesDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => path.join(templatesDir, d.name, 'package.json'))
+    .filter((p) => fs.existsSync(p));
 }
 
 function runNCU(pkgPath) {

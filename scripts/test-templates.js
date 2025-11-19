@@ -7,9 +7,10 @@ const { green, red } = pc;
 const ROOT = path.join(new URL(import.meta.url).pathname, '..', '..');
 function getTemplates() {
   const templatesDir = path.join(ROOT, 'templates');
-  return fs.readdirSync(templatesDir, { withFileTypes: true })
-    .filter(d => d.isDirectory())
-    .map(d => path.join(templatesDir, d.name));
+  return fs
+    .readdirSync(templatesDir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => path.join(templatesDir, d.name));
 }
 
 function run(cmd, opts = {}) {

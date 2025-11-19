@@ -28,7 +28,7 @@
     "typecheck": "tsc --noEmit",
     "test:templates": "node ./scripts/test-templates.js",
     "test:e2e": "node ./scripts/run-playwright.js",
-    "test:all": "npm install && npm run test:templates && npm run test:e2e",
+    "test:all": "pnpm install && pnpm run test:templates && pnpm run test:e2e",
     "update:templates:preview": "node ./scripts/update-templates.js --preview",
     "update:templates": "node ./scripts/update-templates.js",
     "sync-versions": "node dist/sync-versions.mjs",

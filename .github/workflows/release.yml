@@ -28,6 +28,15 @@ jobs:
       - name: Run all tests
         run: pnpm run test:all
 
+      - name: Validate NPM_TOKEN
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NPM_TOKEN" ]; then
+            echo "::error::NPM_TOKEN is not set. Add it as a repository secret or as an environment secret named 'NPM_TOKEN' in the 'release' environment."
+            exit 1
+          fi
+
       - name: Configure npm auth (for publish)
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
