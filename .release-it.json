@@ -23,6 +23,6 @@
     "publish": true
   },
   "hooks": {
-    "before:init": ["pnpm run build"]
+    "before:init": ["pnpm run test:all", "pnpm run build"]
   }
 }
