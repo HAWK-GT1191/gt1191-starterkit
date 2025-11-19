@@ -26,16 +26,14 @@
     "dev": "unbuild --stub",
     "build": "unbuild",
     "typecheck": "tsc --noEmit",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "test:templates": "node ./scripts/test-templates.js",
     "test:e2e": "node ./scripts/run-playwright.js",
     "test:all": "pnpm install && pnpm run test:templates && pnpm run test:e2e",
     "update:templates:preview": "node ./scripts/update-templates.js --preview",
     "update:templates": "node ./scripts/update-templates.js",
     "sync-versions": "node dist/sync-versions.mjs",
-    "prepublishOnly": "npm run sync-versions && npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "release:dry": "release-it --ci --dry-run --increment patch",
-    "release": "release-it"
+    "prepublishOnly": "npm run sync-versions && npm run build"
   },
   "engines": {
     "node": ">=22.0.0 <25.0.0"
