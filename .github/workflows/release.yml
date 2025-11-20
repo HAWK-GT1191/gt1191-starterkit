@@ -80,6 +80,9 @@ jobs:
       - name: Run all tests
         run: pnpm run test:all
 
+      - name: Build for release
+        run: pnpm run build
+
       - name: Validate NPM_TOKEN
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

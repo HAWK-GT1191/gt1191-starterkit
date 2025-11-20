@@ -36,7 +36,7 @@ The workflow `.github/workflows/release.yml` is triggered, when a new tag `v*.*.
 
 Follow the following steps to perform a release.
 
-1. Commit and push your changes:
+1. Do your changes and commit them:
 
 ```bash
 git status --porcelain   # must be empty
@@ -45,17 +45,26 @@ git commit -m "feat: Some changes"
 git push origin main
 ```
 
-2. Create a tag and push it:
+2. Trigger the release action in GitHub
 
 ```bash
-npx release-it --ci --increment patch
+gh workflow run Release --ref main -f version=X.Y.Z
 
-# or do it manually
+# or manually create and push a tag:
 git tag -a vX.Y.Z -m "Release vX.Y.Z"
 git push origin vX.Y.Z
 ```
 
 Check, which version is in the registry with `npm view create-website-starterkit version`, or list all versions with `npm view create-website-starterkit versions --json`. To see the latest tag, you can run `git describe --tags --abbrev=0`.
+
+3. Wait for the pipeline to finish and the release to be published.
+
+4. Local sync
+
+```bash
+git fetch origin --tags
+git pull
+```
 
 ### Perform a dry run
 

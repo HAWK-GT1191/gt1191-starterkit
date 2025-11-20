@@ -33,7 +33,7 @@
     "update:templates:preview": "node ./scripts/update-templates.js --preview",
     "update:templates": "node ./scripts/update-templates.js",
     "sync-versions": "node dist/sync-versions.mjs",
-    "prepublishOnly": "npm run sync-versions && npm run build"
+    "prepublishOnly": "npm run build && npm run sync-versions"
   },
   "engines": {
     "node": ">=22.0.0 <25.0.0"
