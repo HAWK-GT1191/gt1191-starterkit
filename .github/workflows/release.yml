@@ -4,6 +4,11 @@ on:
   push:
     tags: ['v*.*.*']
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Explicit version to release (e.g. 3.2.5). If omitted, the workflow will compute the planned version.'
+        required: false
+        default: ''
 
 jobs:
   release:
@@ -15,7 +20,6 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: true
-          ref: main
 
       - name: Enable corepack
         run: corepack enable
@@ -30,24 +34,44 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Pre-publish version check
+        env:
+          DISPATCH_VERSION: ${{ github.event.inputs.version }}
         run: |
-          set -e
+          set -euo pipefail
           node -e "require('semver')" >/dev/null 2>&1 || (echo 'semver not available'; exit 1)
+
+          # Determine if this run was triggered by a tag (refs/tags/vX.Y.Z)
           PKG_VERSION=$(node -p "require('./package.json').version")
-          PLANNED=$(node -e "const s=require('./package.json').version; const semver=require('semver'); console.log(semver.inc(s,'patch'))")
           echo "Local package.json version: $PKG_VERSION"
-          echo "Planned release version (patch): $PLANNED"
+
+          if [[ "${GITHUB_REF:-}" =~ ^refs/tags/v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
+            PLANNED="${BASH_REMATCH[1]}"
+            echo "Triggered by tag: ${GITHUB_REF} -> planned version: $PLANNED"
+          elif [ -n "${DISPATCH_VERSION:-}" ]; then
+            PLANNED="${DISPATCH_VERSION}"
+            echo "Using explicit dispatch version input: $PLANNED"
+          else
+            PLANNED=$(node -e "const s=require('./package.json').version; const semver=require('semver'); console.log(semver.inc(s,'patch'))")
+            echo "Calculated planned release version (patch): $PLANNED"
+          fi
+
           PUBLISHED=$(npm view create-website-starterkit version 2>/dev/null || true)
           echo "Registry published version: ${PUBLISHED:-<none>}"
+
           if [ -n "$PUBLISHED" ] && [ "$PUBLISHED" = "$PLANNED" ]; then
             NEXT=$(node -e "const s=require('./package.json').version; const semver=require('semver'); console.log(semver.inc(semver.inc(s,'patch'),'patch'))")
             echo "::error::Planned version $PLANNED already exists on npm. Choose a higher version (e.g. $NEXT) and push that tag, or run the workflow with an explicit version."
             exit 1
           fi
-          if git ls-remote --tags origin | grep -q "refs/tags/v${PLANNED}"; then
-            echo "::error::Remote tag v${PLANNED} already exists. Choose a different version."
-            exit 1
+
+          # Only check for an existing remote tag when this run was NOT triggered by the tag push itself.
+          if [[ ! "${GITHUB_REF:-}" =~ ^refs/tags/ ]]; then
+            if git ls-remote --tags origin | grep -q "refs/tags/v${PLANNED}"; then
+              echo "::error::Remote tag v${PLANNED} already exists. Choose a different version."
+              exit 1
+            fi
           fi
+
           echo "Pre-publish checks passed: planned version $PLANNED is available."
 
       - name: Install Playwright browsers
