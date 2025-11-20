@@ -48,6 +48,9 @@ git push origin main
 2. Create a tag and push it:
 
 ```bash
+npx release-it --ci --increment patch
+
+# or do it manually
 git tag -a vX.Y.Z -m "Release vX.Y.Z"
 git push origin vX.Y.Z
 ```
