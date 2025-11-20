@@ -14,8 +14,7 @@
   ],
   "main": "index.js",
   "bin": {
-    "create-website-starterkit": "index.js",
-    "sync-versions": "sync-versions.js"
+    "create-website-starterkit": "index.js"
   },
   "files": [
     "index.js",
@@ -32,9 +31,9 @@
     "test:all": "pnpm install && pnpm run test:templates && pnpm run test:e2e",
     "update:templates:preview": "node ./scripts/update-templates.js --preview",
     "update:templates": "node ./scripts/update-templates.js",
-    "sync-versions": "node dist/sync-versions.mjs",
+    "sync-versions": "tsx scripts/sync-versions.ts",
     "release": "open https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/release.yml",
-    "clean:templates": "node scripts/clean-templates.js",
+    "clean:templates": "tsx scripts/clean-templates.ts",
     "prepublishOnly": "npm run build && npm run sync-versions && npm run clean:templates"
   },
   "engines": {
@@ -55,14 +54,15 @@
     "@types/prompts": "^2.4.9",
     "fs-extra": "^11.2.0",
     "node-fetch": "^3.3.2",
+    "npm-check-updates": "^16.0.0",
     "picocolors": "^1.1.1",
+    "playwright": "^1.40.0",
     "prompts": "^2.4.2",
     "release-it": "^18.1.1",
-    "typescript": "^5.7.3",
-    "unbuild": "^3.2.0",
-    "npm-check-updates": "^16.0.0",
     "semver": "^7.5.4",
-    "playwright": "^1.40.0"
+    "tsx": "^4.20.6",
+    "typescript": "^5.7.3",
+    "unbuild": "^3.2.0"
   },
   "packageManager": "pnpm@10.0.0+sha512.b8fef5494bd3fe4cbd4edabd0745df2ee5be3e4b0b8b08fa643aa3e4c6702ccc0f00d68fa8a8c9858a735a0032485a44990ed2810526c875e416f001b17df12b"
 }

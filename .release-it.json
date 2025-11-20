@@ -24,6 +24,6 @@
   },
   "hooks": {
     "before:init": ["pnpm run test:all", "pnpm run build"],
-    "after:bump": "node ./dist/sync-versions.mjs && git add templates/**/package.json || true"
+    "after:bump": "npm run sync-versions && git add templates/**/package.json || true"
   }
 }
