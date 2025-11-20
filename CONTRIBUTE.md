@@ -52,7 +52,7 @@ git tag -a vX.Y.Z -m "Release vX.Y.Z"
 git push origin vX.Y.Z
 ```
 
-To see the latest tag, you can run `git describe --tags --abbrev=0`.
+Check, which version is in the registry with `npm view create-website-starterkit version`, or list all versions with `npm view create-website-starterkit versions --json`. To see the latest tag, you can run `git describe --tags --abbrev=0`.
 
 ### Perform a dry run
 

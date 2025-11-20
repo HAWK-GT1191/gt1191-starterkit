@@ -29,6 +29,27 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Pre-publish version check
+        run: |
+          set -e
+          node -e "require('semver')" >/dev/null 2>&1 || (echo 'semver not available'; exit 1)
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          PLANNED=$(node -e "const s=require('./package.json').version; const semver=require('semver'); console.log(semver.inc(s,'patch'))")
+          echo "Local package.json version: $PKG_VERSION"
+          echo "Planned release version (patch): $PLANNED"
+          PUBLISHED=$(npm view create-website-starterkit version 2>/dev/null || true)
+          echo "Registry published version: ${PUBLISHED:-<none>}"
+          if [ -n "$PUBLISHED" ] && [ "$PUBLISHED" = "$PLANNED" ]; then
+            NEXT=$(node -e "const s=require('./package.json').version; const semver=require('semver'); console.log(semver.inc(semver.inc(s,'patch'),'patch'))")
+            echo "::error::Planned version $PLANNED already exists on npm. Choose a higher version (e.g. $NEXT) and push that tag, or run the workflow with an explicit version."
+            exit 1
+          fi
+          if git ls-remote --tags origin | grep -q "refs/tags/v${PLANNED}"; then
+            echo "::error::Remote tag v${PLANNED} already exists. Choose a different version."
+            exit 1
+          fi
+          echo "Pre-publish checks passed: planned version $PLANNED is available."
+
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps
 

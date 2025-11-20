@@ -33,6 +33,7 @@ dist
 
 # Do not commit lockfiles from templates in this repository. Templates
 # should keep their own lockfiles in their respective repositories.
-templates/*/pnpm-lock.yaml
-templates/*/package-lock.json
-templates/*/yarn.lock
+# Ignore lockfiles in any subdirectory under `templates/` (recursive).
+templates/**/pnpm-lock.yaml
+templates/**/package-lock.json
+templates/**/yarn.lock
