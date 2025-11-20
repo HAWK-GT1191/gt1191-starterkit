@@ -34,7 +34,8 @@
     "update:templates": "node ./scripts/update-templates.js",
     "sync-versions": "node dist/sync-versions.mjs",
     "release": "open https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/release.yml",
-    "prepublishOnly": "npm run build && npm run sync-versions"
+    "clean:templates": "node scripts/clean-templates.js",
+    "prepublishOnly": "npm run build && npm run sync-versions && npm run clean:templates"
   },
   "engines": {
     "node": ">=22.0.0 <25.0.0"
