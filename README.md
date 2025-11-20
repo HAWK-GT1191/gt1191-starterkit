@@ -20,6 +20,16 @@ npm create website-starterkit
 
 Du wirst hier Schritt für Schritt durch den Prozess geführt.
 
+### Updates
+
+Vom Starterkit werden regelmäßig Updates veröffentlicht, um neue Funktionen, Verbesserungen und Fehlerbehebungen bereitzustellen. Wenn auch du die aktuellste Version des Starterkits verwenden möchtest, kannst du dies ganz einfach tun. Führe dazu folgenden Befehl im Terminal aus:
+
+```shell
+npm install -g create-website-starterkit@latest
+```
+
+Danach reicht für neue Projekte wieder der kurze Befehl von oben.
+
 ## Entwicklung
 
 Ist das Starterkit eingerichtet, kannst du mit der Entwicklung deiner Website anfangen. Der folgende Befehl startet einen Webserver, erstellt einen „Build“ deiner Website im Verzeichnis `dist`, öffnet diesen im Browser und zeigt Datenänderungen ohne Reload an:
