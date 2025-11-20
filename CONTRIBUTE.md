@@ -33,6 +33,7 @@ npm install
 Releases are fully automated via GitHub Actions. You do not need to run `release-it` locally.
 
 ### 1. Make your changes
+
 Make your code changes, commit them, and push them to the `main` branch.
 
 ```bash
@@ -42,6 +43,7 @@ git push origin main
 ```
 
 ### 2. Trigger the Release
+
 We have a helper script to open the release page:
 
 ```bash
@@ -49,6 +51,7 @@ npm run release
 ```
 
 Or manually:
+
 1. Go to the [GitHub Actions Release Workflow](https://github.com/HAWK-GT1191/gt1191-starterkit/actions/workflows/release.yml).
 2. Click on **Run workflow**.
 3. Select the version increment:
@@ -58,6 +61,7 @@ Or manually:
 4. Click the green **Run workflow** button.
 
 The pipeline will automatically:
+
 - Run all tests
 - Build the project
 - Bump the version in `package.json` and `templates/*/package.json`
@@ -66,9 +70,9 @@ The pipeline will automatically:
 - Push the version bump back to the `main` branch
 
 ### 3. Sync local repository
+
 After the release is finished successfully, pull the changes (the version bump) back to your local machine. Using `--tags` ensures you also get the new release tag locally.
 
 ```bash
 git pull --tags
 ```
-
