@@ -1,7 +1,7 @@
 {
   "name": "website-starterkit-singlepager",
   "private": true,
-  "version": "3.2.7",
+  "version": "3.2.8",
   "browserslist": "> 2%, last 2 versions, not dead",
   "homepage": "https://github.com/HAWK-GT1191/gt1191-starterkit",
   "scripts": {
