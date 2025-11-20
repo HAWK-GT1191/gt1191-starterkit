@@ -1,27 +1,34 @@
 name: Release
 
 on:
-  push:
-    tags: ['v*.*.*']
   workflow_dispatch:
     inputs:
-      version:
-        description: 'Explicit version to release (e.g. 3.2.5). If omitted, the workflow will compute the planned version.'
-        required: false
-        default: ''
+      increment:
+        description: 'Version increment (patch, minor, major)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    environment: release
-    env:
-      RELEASE_PAT: ${{ secrets.RELEASE_PAT }}
+    permissions:
+      contents: write
+      id-token: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
+          # WICHTIG: Damit der Push in den main-Branch trotz Branch Protection funktioniert,
+          # muss hier ein PAT (Personal Access Token) verwendet werden, der Admin-Rechte hat
+          # oder die Protection umgehen darf.
+          token: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
 
       - name: Enable corepack
         run: corepack enable
@@ -31,95 +38,29 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Pre-publish version check
-        env:
-          DISPATCH_VERSION: ${{ github.event.inputs.version }}
-        run: |
-          set -euo pipefail
-          node -e "require('semver')" >/dev/null 2>&1 || (echo 'semver not available'; exit 1)
-
-          # Determine if this run was triggered by a tag (refs/tags/vX.Y.Z)
-          PKG_VERSION=$(node -p "require('./package.json').version")
-          echo "Local package.json version: $PKG_VERSION"
-
-          if [[ "${GITHUB_REF:-}" =~ ^refs/tags/v([0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
-            PLANNED="${BASH_REMATCH[1]}"
-            echo "Triggered by tag: ${GITHUB_REF} -> planned version: $PLANNED"
-          elif [ -n "${DISPATCH_VERSION:-}" ]; then
-            PLANNED="${DISPATCH_VERSION}"
-            echo "Using explicit dispatch version input: $PLANNED"
-          else
-            PLANNED=$(node -e "const s=require('./package.json').version; const semver=require('semver'); console.log(semver.inc(s,'patch'))")
-            echo "Calculated planned release version (patch): $PLANNED"
-          fi
-
-          PUBLISHED=$(npm view create-website-starterkit version 2>/dev/null || true)
-          echo "Registry published version: ${PUBLISHED:-<none>}"
-
-          if [ -n "$PUBLISHED" ] && [ "$PUBLISHED" = "$PLANNED" ]; then
-            NEXT=$(node -e "const s=require('./package.json').version; const semver=require('semver'); console.log(semver.inc(semver.inc(s,'patch'),'patch'))")
-            echo "::error::Planned version $PLANNED already exists on npm. Choose a higher version (e.g. $NEXT) and push that tag, or run the workflow with an explicit version."
-            exit 1
-          fi
-
-          # Only check for an existing remote tag when this run was NOT triggered by the tag push itself.
-          if [[ ! "${GITHUB_REF:-}" =~ ^refs/tags/ ]]; then
-            if git ls-remote --tags origin | grep -q "refs/tags/v${PLANNED}"; then
-              echo "::error::Remote tag v${PLANNED} already exists. Choose a different version."
-              exit 1
-            fi
-          fi
-
-          echo "Pre-publish checks passed: planned version $PLANNED is available."
-
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps
 
-      - name: Run all tests
+      - name: Run tests
         run: pnpm run test:all
 
-      - name: Build for release
+      - name: Build
         run: pnpm run build
 
-      - name: Validate NPM_TOKEN
+      - name: Configure Git User
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Release
         env:
+          # Wir nutzen hier auch den PAT für release-it, falls vorhanden
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          if [ -z "$NPM_TOKEN" ]; then
-            echo "::error::NPM_TOKEN is not set. Add it as a repository secret or as an environment secret named 'NPM_TOKEN' in the 'release' environment."
-            exit 1
-          fi
-
-      - name: Configure npm auth (for publish)
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          if [ -n "$NPM_TOKEN" ]; then
-            echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          fi
-
-      - name: Configure git for commits
-        if: ${{ always() }}
-        env:
-          GITHUB_ACTOR: ${{ github.actor }}
-        run: |
-          git config user.name "${GITHUB_ACTOR}"
-          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-
-      - name: Configure remote for PAT pushes
-        if: ${{ env.RELEASE_PAT != '' }}
-        env:
-          REPO: ${{ github.repository }}
-        run: |
-          git remote set-url origin https://x-access-token:${RELEASE_PAT}@github.com/${REPO}.git
-          git remote -v
-
-      - name: Release with release-it
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx release-it --ci
+          pnpm exec release-it ${{ inputs.increment }} --ci --verbose
